@@ -10,6 +10,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Header from './pages/Home';
+
 // need to import pages and components
 
 const httpLink = createHttpLink({
@@ -45,6 +47,12 @@ function App() {
     // *** start Liz added code from 21-25 App.js
     <ApolloProvider client={client}>
       <Router>
+      <Routes>
+            <Route
+              path='/'
+              element={<Header />}
+            />
+       </Routes>     
         {/* end Liz added */}
         <div className="App">
           <header className="App-header">
