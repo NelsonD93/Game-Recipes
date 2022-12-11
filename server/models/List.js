@@ -2,21 +2,16 @@ const { Schema, model, Types } = require('mongoose');
 
 const listSchema = new Schema(
     {
-        listId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
-            required: true
-        },
-        listName: {
+        name: {
             type: String,
             required: true
         },
-        listUserId: {
+        userId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId,
             required: true
         },
-        listIngredients: [
+        ingredients: [
         {
 
         }
