@@ -5,7 +5,8 @@ const itemSchema = new Schema(
     {
         itemId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId
+            default: () => new Types.ObjectId,
+            required: true
         },
         itemName: {
             type: String,
@@ -16,10 +17,19 @@ const itemSchema = new Schema(
             required: true
         },
         gameId: {
-
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId,
+            required: true
         },
         itemRecipe: [
-            
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Ingredient',
+            }
         ]
     }
 )
+
+const Item = model('item', itemSchema);
+
+module.exports = Item;
