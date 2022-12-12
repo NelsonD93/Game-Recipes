@@ -3,25 +3,19 @@ const gameSchema = require('./Game')
 
 const itemSchema = new Schema(
     {
-        itemId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
-            required: true
-        },
-        itemName: {
+        name: {
             type: String,
             required: true
         },
-        itemDescription: {
+        description: {
             type: String,
             required: true
         },
         gameId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
             required: true
         },
-        itemRecipe: [
+        recipe: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'Ingredient',

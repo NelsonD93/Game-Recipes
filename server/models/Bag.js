@@ -3,12 +3,6 @@ const userSchema = require('./User')
 
 const bagSchema = new Schema(
     {
-        bagId: {
-            // ID logic taken from Mongo mini-project, unsure if this is correct, and this goes for all ID's
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
-            required: true
-        },
         gameId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId
@@ -17,7 +11,7 @@ const bagSchema = new Schema(
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId
         },
-        bagIngredients: [
+        ingredients: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Ingredient',

@@ -3,17 +3,12 @@ const userSchema = require('./User')
 
 const gameSchema = new Schema(
     {
-        gameId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
-            required: true
-        },
-        gameName: {
+        name: {
             type: String,
             required: true,
 
         },
-        gameAdmins: [
+        admins: [
         {
             type: Schema.Types.ObjectId,
             ref: 'User',
