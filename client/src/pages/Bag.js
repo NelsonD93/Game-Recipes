@@ -24,8 +24,14 @@ return ( <div className="w3-top">
     <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16"></h3>
   </div> 
 
-  <div className="w3-row-padding">
-   
+  <div class="w3-row-padding">
+    <div class="w3-container">
+      <ul>
+        <li>
+
+        </li>
+      </ul>
+    </div>
 </div>
 
 <footer className="w3-center w3-black w3-padding-16">
