@@ -6,7 +6,7 @@ return (
     <div className="w3-top">
     <div className="w3-bar w3-white w3-wide w3-padding w3-card">
       <a href="./skeleton.html" className="w3-bar-item w3-button">WIKICRAFT</a>
-      <!-- Float links to the right. Hide them on small screens -->
+   
       <div className="w3-right w3-hide-small">
         <a href="profile.html" className="w3-bar-item w3-button">Profile</a>
         <a href="bag.html" className="w3-bar-item w3-button">Bag</a>
