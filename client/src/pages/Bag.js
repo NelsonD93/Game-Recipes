@@ -1,4 +1,5 @@
-return ( <div className="w3-top">
+return ( 
+<div className="w3-top">
   <div className="w3-bar w3-white w3-wide w3-padding w3-card">
     <a href="./skeleton.html" className="w3-bar-item w3-button">WIKICRAFT</a>
  
