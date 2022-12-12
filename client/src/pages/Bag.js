@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from 'react';
+
+const Bag = () => {
+
 return ( 
 <div className="w3-top">
   <div className="w3-bar w3-white w3-wide w3-padding w3-card">
@@ -39,3 +43,4 @@ return (
   <p>TBD</p>
 </footer>
 )
+  }

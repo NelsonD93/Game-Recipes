@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from 'react';
+
+const Profile = () => {
+
 return (
     <div className="w3-top">
     <div className="w3-bar w3-white w3-wide w3-padding w3-card">
@@ -42,3 +46,4 @@ return (
     </footer>
 
 )
+}
