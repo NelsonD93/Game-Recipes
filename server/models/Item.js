@@ -1,5 +1,6 @@
 const {Schema, Model, Types} = require('mongoose');
-const gameSchema = require('./Game')
+const gameSchema = require('./Game');
+const ingredientSchema = require('./Ingredient');
 
 const itemSchema = new Schema(
     {
@@ -15,12 +16,7 @@ const itemSchema = new Schema(
             type: Schema.Types.ObjectId,
             required: true
         },
-        recipe: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Ingredient',
-            }
-        ]
+        recipe: [ingredientSchema]
     }
 )
 
