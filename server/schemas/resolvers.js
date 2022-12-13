@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Game, Item, Bag, User } = require('../models');
-const List = require('../models/List');
+
+const { Bag, Game, Item, List, User  } = require('../models');
+
 // import sign token function from auth
 const { signToken } = require('../utils/auth');
 
@@ -30,6 +31,11 @@ const resolvers = {
     },
     Mutation: {
 
+        // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
+        buildList: async (parent, { itemId }) => {
+            const buildItem = await Item.findOne({_id: itemId});
+            const listArray = [];
+        }
     }
 };
 

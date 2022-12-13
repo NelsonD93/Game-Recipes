@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const ingredientSchema = require('./Ingredient');
 
 const listSchema = new Schema(
     {
@@ -11,11 +12,7 @@ const listSchema = new Schema(
             default: () => new Types.ObjectId,
             required: true
         },
-        ingredients: [
-        {
-
-        }
-        ]
+        ingredients: [ingredientSchema]
     }
 )
 
