@@ -10,8 +10,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
-import Header from './components/Header';
+import Home from './pages/Home';
 
 // need to import pages and components
 
@@ -51,15 +50,16 @@ function App() {
       <Routes>
             <Route
               path='/'
-              element={<Navbar/>}
-            />
-            <Route
-              path='/'
-              element={<Header/>}
+              element={<Home/>}
             />
        </Routes>
        
         {/* end Liz added */}
+        {/* <div>
+          <Header>
+          
+          </Header>
+        </div> */}
         {/* <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
