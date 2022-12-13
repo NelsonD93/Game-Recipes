@@ -12,10 +12,10 @@ function Navbar({ currentPage, handlePageChange }) {
                     className="w3-bar-item w3-button"
 
                 >
-                    Wikicraft
+                    WIKICRAFT
                 </a>
             
-                <div class="w3-right w3-hide-small">
+                <div className="w3-right w3-hide-small">
                 <a
                     href="#Profile"
                     onClick={() => handlePageChange('Profile')}
