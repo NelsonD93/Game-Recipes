@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 // *** start Liz added code from 21-25 App.js
 import {
@@ -11,6 +11,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 // need to import pages and components
 
@@ -50,11 +51,16 @@ function App() {
       <Routes>
             <Route
               path='/'
-              element={<Navbar />}
+              element={<Navbar/>}
             />
-       </Routes>     
+            <Route
+              path='/'
+              element={<Header/>}
+            />
+       </Routes>
+       
         {/* end Liz added */}
-        <div className="App">
+        {/* <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
@@ -69,7 +75,7 @@ function App() {
               Learn React
             </a>
           </header>
-        </div>
+        </div> */}
         {/* start Liz added */}
       </Router>
     </ApolloProvider>
