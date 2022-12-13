@@ -1,4 +1,4 @@
-const {Schema, Model, Types} = require('mongoose');
+const {Schema, model, Types} = require('mongoose');
 const gameSchema = require('./Game');
 const ingredientSchema = require('./Ingredient');
 
