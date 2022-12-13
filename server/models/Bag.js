@@ -1,4 +1,5 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, Types, model } = require('mongoose');
+const ingredientSchema = require('./Ingredient');
 const userSchema = require('./User')
 
 const bagSchema = new Schema(
@@ -11,12 +12,8 @@ const bagSchema = new Schema(
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId
         },
-        ingredients: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Ingredient',
-        }
-        ]
+        ingredients: [ingredientSchema]
+        
     }
 )
 
