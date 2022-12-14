@@ -7,7 +7,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getGames: async () => {
+        getGames: async (parent) => {
             return Game.find({})
         },
         getOneItem: async (parent, { itemId }) => {
@@ -17,16 +17,19 @@ const resolvers = {
             return Item.find({ gameId: gameId })
         },
         getBag: async (parent, { gameId, userId }, context) => {
-            return Bag.find({ gameId: gameId, userId: userId })
+            return Bag.findOne({ gameId: gameId, userId: userId })
         },
         getOneUser: async (parent, { userId }, context) => {
             return User.findOne({ _id: userId })
         },
         getList: async (parent, { listId }) => {
-            return List.find({ _id: listId })
+            return List.findOne({ _id: listId });
         },
         getUsers: async () => {
             return User.find({})
+        },
+        getLists: async (parent) => {
+            return List.find({});
         },
     },
     Mutation: {
@@ -102,17 +105,18 @@ const resolvers = {
 
         // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
 
-        buildList: async (parent, { itemId, name, userId }) => {
+        buildList: async (parent, { itemId, name, userId, buildQty }) => {
             // Starting array of raw materials. Ingredient objects will be added to it via recursiveList function. Ingredients will need to be grouped by name/id after and quantities added together
             const ungroupedRawArray = [];
-            let recurseCount = 0;
             // Recursive function to push ingredients onto ungroupedRawArray
             const recursiveList = async (ingredient) => {
                 const buildItem = await Item.findOne({ _id: ingredient.itemId });
                 const listArray = [...buildItem.recipe];
+                const itemName = buildItem.name;
                 if (listArray.length === 0) {
                     const pushObject = {
                         itemId: ingredient.itemId,
+                        itemName: itemName,
                         qty: ingredient.qty
                     };
                     ungroupedRawArray.push(pushObject);
@@ -122,22 +126,32 @@ const resolvers = {
                         const element = listArray[index];
                         await recursiveList({
                             itemId: element.itemId,
-                            qty: element.qty
+                            itemName: element.itemName,
+                            qty: element.qty * ingredient.qty
                         });
                     }
                 }
             }
             // The item that the user wants to make
             const endItem = await Item.findOne({ _id: itemId });
-            const buildQty = 1;
             const endIngredients = [...endItem.recipe];
+            const endName = endItem.name;
             // Check to see if endItem has any ingredients
             if (endIngredients.length === 0) {
-                ungroupedRawArray.push({ itemId: itemId, qty: buildQty });
+                ungroupedRawArray.push({
+                    itemId: itemId,
+                    itemName: endName,
+                    qty: buildQty
+                });
             } else {
                 for (let index = 0; index < endIngredients.length; index++) {
                     // Calling the recursive function to populate ungroupedRawArray
-                    await recursiveList(endIngredients[index]);
+                    const ingredientQty = endIngredients[index].qty * buildQty;
+                    await recursiveList({
+                        itemId: endIngredients[index].itemId,
+                        itemName: endIngredients[index].itemName,
+                        qty: ingredientQty
+                    });
                 }
             }
 
@@ -153,15 +167,24 @@ const resolvers = {
                 // If the element is already in the grouped array, get the quantity of it, add it to the current element qty, splice it out of groupedRawArray, and then push a new ingredient object with the updated quantity to the groupedRawArray
                 if (foundIndex !== -1) {
                     const foundId = groupedRawArray[foundIndex].itemId;
+                    const foundName = groupedRawArray[foundIndex].itemName;
                     const foundQty = groupedRawArray[foundIndex].qty;
                     const elementQty = element.qty;
                     // console.log(`found qty ${foundQty} elementQty ${elementQty}`);
                     const newQty = foundQty + elementQty;
                     groupedRawArray.splice(foundIndex, 1);
-                    groupedRawArray.push({ itemId: foundId, qty: newQty });
+                    groupedRawArray.push({
+                        itemId: foundId,
+                        itemName: foundName,
+                        qty: newQty
+                    });
                     // If it's not found, push the ingredient to the groupedRawArray
                 } else {
-                    groupedRawArray.push({ itemId: element.itemId, qty: element.qty });
+                    groupedRawArray.push({
+                        itemId: element.itemId,
+                        itemName: element.itemName,
+                        qty: element.qty
+                    });
                 }
             });
 

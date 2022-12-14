@@ -19,11 +19,13 @@ recipe: [Ingredient]
 
 input IngredientInput {
   itemId: ID!
+  itemName: String!
   qty: Int!
 }
 
 type Ingredient {
   itemId: ID!
+  itemName: String!
   qty: Int!
 }
 
@@ -66,6 +68,7 @@ type List {
     getOneUser(userId: ID!): User
     getList(listId:ID!): List
     getUsers: [User]
+    getLists: [List]
   }
 
   type Mutation {
@@ -75,7 +78,7 @@ type List {
     addGame(name:String!,admins:[ID]): Game
     addBag(gameId:ID!, userId:ID!): Bag
     subToGame(gameId:ID!): User
-    buildList(itemId:ID!, userId:ID!, name:String!): List
+    buildList(itemId:ID!, userId:ID!, name:String!, buildQty: Int!): List
 
 
   }

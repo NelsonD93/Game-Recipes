@@ -5,6 +5,10 @@ const ingredientSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true
     },
+    itemName: {
+        type: String,
+        required: true
+    },
     qty: {
         type: Number,
         required: true
