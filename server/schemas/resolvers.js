@@ -108,26 +108,19 @@ const resolvers = {
             let recurseCount = 0;
             // Recursive function to push ingredients onto ungroupedRawArray
             const recursiveList = async (ingredient) => {
-                recurseCount++;
-                console.log(` recurse count ${recurseCount}`);
                 const buildItem = await Item.findOne({ _id: ingredient.itemId });
-                console.log(`${buildItem.name} length - ${buildItem.recipe.length}`);
                 const listArray = [...buildItem.recipe];
                 if (listArray.length === 0) {
                     const pushObject = {
                         itemId: ingredient.itemId,
                         qty: ingredient.qty
-                     };
+                    };
                     ungroupedRawArray.push(pushObject);
-                    console.log(`0 length push`);
-                    console.log(ungroupedRawArray);
-                    // return;
+                    return;
                 } else {
                     for (let index = 0; index < listArray.length; index++) {
-                        console.log(`in the for loop ${index}` )
                         const element = listArray[index];
-                        console.log(element);
-                        return await recursiveList({
+                        await recursiveList({
                             itemId: element.itemId,
                             qty: element.qty
                         });
@@ -141,17 +134,12 @@ const resolvers = {
             // Check to see if endItem has any ingredients
             if (endIngredients.length === 0) {
                 ungroupedRawArray.push({ itemId: itemId, qty: buildQty });
-                console.log(`for loop push`);
-                console.log(ungroupedRawArray);
             } else {
                 for (let index = 0; index < endIngredients.length; index++) {
                     // Calling the recursive function to populate ungroupedRawArray
                     await recursiveList(endIngredients[index]);
-                    console.log(index)
                 }
             }
-
-
 
             // An empty array to store consolidated raw materials
             const groupedRawArray = [];
@@ -159,18 +147,17 @@ const resolvers = {
             ungroupedRawArray.forEach(element => {
                 // Find function to see if ingredient is already in grouped
                 function onList(ingredient) {
-                    return ingredient.itemId === element.itemId;
+                    return ingredient.itemId.toString() === element.itemId.toString();
                 }
-                const foundElement = groupedRawArray.find(onList);
-                // If the element is already in the grouped array, get the quantity of it, add it to the current element qty, filter it out of groupedRawArray, and then push a new ingredient object with the updated quantity to the groupedRawArray
-                if (foundElement) {
-                    const foundId = foundElement.itemId;
-                    const foundQty = foundElement.qty;
+                const foundIndex = groupedRawArray.findIndex(onList);
+                // If the element is already in the grouped array, get the quantity of it, add it to the current element qty, splice it out of groupedRawArray, and then push a new ingredient object with the updated quantity to the groupedRawArray
+                if (foundIndex !== -1) {
+                    const foundId = groupedRawArray[foundIndex].itemId;
+                    const foundQty = groupedRawArray[foundIndex].qty;
                     const elementQty = element.qty;
+                    // console.log(`found qty ${foundQty} elementQty ${elementQty}`);
                     const newQty = foundQty + elementQty;
-                    groupedRawArray = groupedRawArray.filter((ingredient) => {
-                        return ingredient.itemId !== foundId;
-                    });
+                    groupedRawArray.splice(foundIndex, 1);
                     groupedRawArray.push({ itemId: foundId, qty: newQty });
                     // If it's not found, push the ingredient to the groupedRawArray
                 } else {
