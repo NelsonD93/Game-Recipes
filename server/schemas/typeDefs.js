@@ -54,10 +54,23 @@ type List {
 
 
   type Query {
-
+    getGames: [Game]
+    getOneItem(itemId: ID!): Item
+    getGameItems(gameId: ID!): [Item]
+    getBag(gameId: ID!, userId: ID!): Bag
+    getOneUser(userId: ID!): User
+    getList(listId:ID!): List
   }
 
   type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(name: String!, email: String!, password: String!): Auth
+    addItem(name: String!, description: String!, gameId:ID!, recipe: [Ingredient]): Item
+    addGame(name:String!,admins:[userId]): Game
+    addBag(gameId:ID!, userId:ID!): Bag
+    subToGame(gameId:ID!): User
+    buildList(itemId:ID!): List
+
 
   }
 `;
