@@ -9,7 +9,6 @@ const listSchema = new Schema(
         },
         userId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId,
             required: true
         },
         ingredients: [ingredientSchema]

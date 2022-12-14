@@ -13,18 +13,21 @@ const resolvers = {
         getOneItem: async (parent, { itemId }) => {
             return Item.findOne({ _id: itemId })
         },
-        getGameItems: async (gameId) => {
-            return Item.find({ _id: gameId })
+        getGameItems: async (parent, { gameId }, context) => {
+            return Item.find({ gameId: gameId })
         },
-        getBag: async (gameId, userId) => {
+        getBag: async (parent, { gameId, userId }, context) => {
             return Bag.find({ gameId: gameId, userId: userId })
         },
-        getOneUser: async (userId) => {
+        getOneUser: async (parent, { userId }, context) => {
             return User.findOne({ _id: userId })
         },
-        getList: async (listId) => {
+        getList: async (parent, { listId }) => {
             return List.find({ _id: listId })
-        }
+        },
+        getUsers: async () => {
+            return User.find({})
+        },
     },
     Mutation: {
 
@@ -65,17 +68,16 @@ const resolvers = {
         addGame: async (parent, { name }, context) => {
             const game = await Game.create({
                 name: name,
-                admins: [context.user._id]
+                // admins: [context.user._id]
             });
             return game;
         },
 
         // Add a bag. args = gameId, userId, ingredients
-        addBag: async (parent, { gameId, userId, ingredients }, context) => {
-            const bag = await Item.create({
-                gameId: gameId,
+        addBag: async (parent, { gameId, userId }, context) => {
+            const bag = await Bag.create({
                 userId: userId,
-               
+                gameId: gameId
             });
             return bag;
         },
@@ -99,27 +101,57 @@ const resolvers = {
         },
 
         // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
-        buildList: async (parent, { itemId }) => {
+
+        buildList: async (parent, { itemId, name, userId }) => {
             // Starting array of raw materials. Ingredient objects will be added to it via recursiveList function. Ingredients will need to be grouped by name/id after and quantities added together
             const ungroupedRawArray = [];
+            let recurseCount = 0;
             // Recursive function to push ingredients onto ungroupedRawArray
             const recursiveList = async (ingredient) => {
+                recurseCount++;
+                console.log(` recurse count ${recurseCount}`);
                 const buildItem = await Item.findOne({ _id: ingredient.itemId });
+                console.log(`${buildItem.name} length - ${buildItem.recipe.length}`);
                 const listArray = [...buildItem.recipe];
                 if (listArray.length === 0) {
-                    ungroupedRawArray.push(ingredient);
-                    return;
+                    const pushObject = {
+                        itemId: ingredient.itemId,
+                        qty: ingredient.qty
+                     };
+                    ungroupedRawArray.push(pushObject);
+                    console.log(`0 length push`);
+                    console.log(ungroupedRawArray);
+                    // return;
                 } else {
                     for (let index = 0; index < listArray.length; index++) {
-                        const element = array[index];
-                        return recursiveList(element);
+                        console.log(`in the for loop ${index}` )
+                        const element = listArray[index];
+                        console.log(element);
+                        return await recursiveList({
+                            itemId: element.itemId,
+                            qty: element.qty
+                        });
                     }
                 }
             }
             // The item that the user wants to make
             const endItem = await Item.findOne({ _id: itemId });
-            // Calling the recursive function to populate ungroupedRawArray
-            recursiveList(endItem);
+            const buildQty = 1;
+            const endIngredients = [...endItem.recipe];
+            // Check to see if endItem has any ingredients
+            if (endIngredients.length === 0) {
+                ungroupedRawArray.push({ itemId: itemId, qty: buildQty });
+                console.log(`for loop push`);
+                console.log(ungroupedRawArray);
+            } else {
+                for (let index = 0; index < endIngredients.length; index++) {
+                    // Calling the recursive function to populate ungroupedRawArray
+                    await recursiveList(endIngredients[index]);
+                    console.log(index)
+                }
+            }
+
+
 
             // An empty array to store consolidated raw materials
             const groupedRawArray = [];
@@ -145,7 +177,13 @@ const resolvers = {
                     groupedRawArray.push({ itemId: element.itemId, qty: element.qty });
                 }
             });
-            return groupedRawArray;
+
+            const newList = await List.create({
+                name: name,
+                userId: userId,
+                ingredients: groupedRawArray
+            })
+            return newList;
         }
     }
 };
