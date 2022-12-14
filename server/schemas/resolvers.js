@@ -75,7 +75,7 @@ const resolvers = {
             const bag = await Item.create({
                 gameId: gameId,
                 userId: userId,
-                ingredients: ingredients
+               
             });
             return bag;
         },
