@@ -6,11 +6,9 @@ const bagSchema = new Schema(
     {
         gameId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId
         }, 
         userId: {
             type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId
         },
         ingredients: [ingredientSchema]
         
