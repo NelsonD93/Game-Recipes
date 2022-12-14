@@ -22,14 +22,81 @@ const resolvers = {
         getOneUser: async (userId) => {
             return User.findOne({ _id: userId })
         },
-        getGameUsers: async (gameId) => {
-            return User.find({}) // Maybe just scrap / ignore for now
-        },
         getList: async (listId) => {
             return List.find({ _id: listId })
         }
     },
     Mutation: {
+
+        login: async (parent, { email, password }, context) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+            return { token, user };
+        },
+
+        addUser: async (parent, { name, email, password }, context) => {
+            const user = await User.create({ name, email, password });
+            const token = signToken(user);
+            return { token, user };
+        },
+
+        // Add an item to a game. args = name, description, gameId, recipe
+        addItem: async (parent, { name, description, gameId, recipe }, context) => {
+            const item = await Item.create({
+                name: name,
+                description: description,
+                gameId: gameId,
+                recipe: recipe
+            });
+            return item;
+        },
+
+        // Add a game. args = name, description, gameId, recipe. Makes the current user an admin
+        addGame: async (parent, { name }, context) => {
+            const game = await Game.create({
+                name: name,
+                admins: [context.user._id]
+            });
+            return game;
+        },
+
+        // Add a bag. args = gameId, userId, ingredients
+        addBag: async (parent, { gameId, userId, ingredients }, context) => {
+            const bag = await Item.create({
+                gameId: gameId,
+                userId: userId,
+                ingredients: ingredients
+            });
+            return bag;
+        },
+
+        // Subscribe to a game
+        subToGame: async (parent, { gameId }) => {
+            if (context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    {
+                        $addToSet: {
+                            games: {
+                                gameId: gameId
+                            }
+                        }
+                    },
+                    { new: true, runValidators: true }
+                );
+                return updatedUser;
+            }
+        },
 
         // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
         buildList: async (parent, { itemId }) => {
