@@ -12,6 +12,11 @@ const ingredientSchema = new Schema({
     qty: {
         type: Number,
         required: true
+    },
+    onHand: {
+        type: Number,
+        required: true,
+        default: 0
     }
 });
 
