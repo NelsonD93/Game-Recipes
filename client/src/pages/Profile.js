@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
+import 'w3-css/w3.css';
+import Navbar from '../components/Navbar';
 
 const Profile = () => {
 
-return (
-    <div className="w3-top">
-    <div className="w3-bar w3-white w3-wide w3-padding w3-card">
-      <a href="./skeleton.html" className="w3-bar-item w3-button">WIKICRAFT</a>
+  return (
    
-      <div className="w3-right w3-hide-small">
-        <a href="profile.html" className="w3-bar-item w3-button">Profile</a>
-        <a href="bag.html" className="w3-bar-item w3-button">Bag</a>
-        <a href="#games" className="w3-bar-item w3-button">Games</a>
-      </div>
-    </div>
-  </div>
+
 
 
   <header className="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">

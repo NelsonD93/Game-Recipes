@@ -2,6 +2,7 @@ import React from 'react'
 import 'w3-css/w3.css';
 
 
+
 function Navbar({ currentPage, handlePageChange }) {
     return (
         <div className="w3-top">
@@ -34,8 +35,8 @@ function Navbar({ currentPage, handlePageChange }) {
                 </a>
 
                 <a
-                    href="#Games"
-                    onClick={() => handlePageChange('Games')}
+                    href='#Game'
+                    onClick={() => handlePageChange('Game')}
                     className="w3-bar-item w3-button"
                 >
                     Games
