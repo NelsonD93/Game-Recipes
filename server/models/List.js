@@ -1,6 +1,23 @@
 const { Schema, model, Types } = require('mongoose');
 const ingredientSchema = require('./Ingredient');
 
+const buildSchema = new Schema({
+    itemId: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+    itemName: {
+        type: String,
+        required: true
+    },
+    qty: {
+        type: Number,
+        required: true
+    },
+    ingredients: [ingredientSchema]
+});
+
+
 const listSchema = new Schema(
     {
         name: {
@@ -16,7 +33,8 @@ const listSchema = new Schema(
             type: Boolean,
             required: true,
             default: false
-        }
+        },
+        buildStack: [buildSchema],
     }
 )
 

@@ -106,13 +106,16 @@ const resolvers = {
         // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
 
         buildList: async (parent, { itemId, name, userId, buildQty }) => {
-            // Starting array of raw materials. Ingredient objects will be added to it via recursiveList function. Ingredients will need to be grouped by name/id after and quantities added together
+            // Starting array of raw materials. Ingredient objects will be added to it via recursiveList function. Ingredients will need to be grouped by name/id after and quantities added together. Populated by Ingredient objects.
             const ungroupedRawArray = [];
+            // Stack of items to build. Build items will be unshifted onto it and later shifted off. Populated by Ingredient objects.
+            const buildStack = [];
             // Recursive function to push ingredients onto ungroupedRawArray
             const recursiveList = async (ingredient) => {
                 const buildItem = await Item.findOne({ _id: ingredient.itemId });
                 const listArray = [...buildItem.recipe];
                 const itemName = buildItem.name;
+                // If the build item has no ingredients, push it to the ungroupedRawArray 
                 if (listArray.length === 0) {
                     const pushObject = {
                         itemId: ingredient.itemId,
@@ -122,6 +125,13 @@ const resolvers = {
                     ungroupedRawArray.push(pushObject);
                     return;
                 } else {
+                    // If the build item has ingredients, unshift it to the build stack and make a recursive call for each indgredient
+                    buildStack.unshift({
+                        itemId: ingredient.itemId,
+                        itemName: itemName,
+                        qty: ingredient.qty,
+                        ingredients: listArray
+                    });
                     for (let index = 0; index < listArray.length; index++) {
                         const element = listArray[index];
                         await recursiveList({
@@ -136,6 +146,12 @@ const resolvers = {
             const endItem = await Item.findOne({ _id: itemId });
             const endIngredients = [...endItem.recipe];
             const endName = endItem.name;
+            buildStack.unshift({
+                itemId: itemId,
+                itemName: endName,
+                qty: buildQty,
+                ingredients: endIngredients
+            });
             // Check to see if endItem has any ingredients
             if (endIngredients.length === 0) {
                 ungroupedRawArray.push({
@@ -191,7 +207,8 @@ const resolvers = {
             const newList = await List.create({
                 name: name,
                 userId: userId,
-                ingredients: groupedRawArray
+                ingredients: groupedRawArray,
+                buildStack: buildStack
             })
             return newList;
         },
@@ -205,7 +222,8 @@ const resolvers = {
                     userId: listToUpdate.userId,
                     name: listToUpdate.name,
                     completed: listToUpdate.completed,
-                    ingredients: onHandUpdate
+                    ingredients: onHandUpdate,
+                    buildStack: listToUpdate.buildStack
                 },
                 { new: true, runValidators: true }
             );

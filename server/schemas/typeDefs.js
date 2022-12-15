@@ -31,6 +31,13 @@ type Ingredient {
   onHand: Int!
 }
 
+type Build {
+  itemId: ID!
+  itemName: String!
+  qty: Int!
+  ingredients: [Ingredient]
+}
+
 type Bag {
   _id: ID!
   gameId: ID!
@@ -54,6 +61,7 @@ type List {
   userId: ID!
   ingredients: [Ingredient]
   completed: Boolean!
+  buildStack: [Build]
 }
 
   type Auth {
