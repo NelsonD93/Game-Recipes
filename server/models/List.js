@@ -11,7 +11,12 @@ const listSchema = new Schema(
             type: Schema.Types.ObjectId,
             required: true
         },
-        ingredients: [ingredientSchema]
+        ingredients: [ingredientSchema],
+        completed: {
+            type: Boolean,
+            required: true,
+            default: false
+        }
     }
 )
 

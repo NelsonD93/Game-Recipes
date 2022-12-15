@@ -21,12 +21,14 @@ input IngredientInput {
   itemId: ID!
   itemName: String!
   qty: Int!
+  onHand: Int
 }
 
 type Ingredient {
   itemId: ID!
   itemName: String!
   qty: Int!
+  onHand: Int!
 }
 
 type Bag {
@@ -51,6 +53,7 @@ type List {
   name: String!
   userId: ID!
   ingredients: [Ingredient]
+  completed: Boolean!
 }
 
   type Auth {
@@ -79,7 +82,7 @@ type List {
     addBag(gameId:ID!, userId:ID!): Bag
     subToGame(gameId:ID!): User
     buildList(itemId:ID!, userId:ID!, name:String!, buildQty: Int!): List
-
+    updateOnHand(listId:ID!, onHandUpdate:[IngredientInput!]): List
 
   }
 `;

@@ -86,7 +86,7 @@ const resolvers = {
         },
 
         // Subscribe to a game
-        subToGame: async (parent, { gameId }) => {
+        subToGame: async (parent, { gameId }, context) => {
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
@@ -194,8 +194,24 @@ const resolvers = {
                 ingredients: groupedRawArray
             })
             return newList;
+        },
+
+        // Update the on hand quantities in the ingredients list with input values from the user. onHandUpdate is an ingredients array constructed on the client side.
+        updateOnHand: async (parent, { listId, onHandUpdate }, context) => {
+            const listToUpdate = await List.findOne({_id: listId});
+            const updatedList = await List.findOneAndReplace(
+                { _id: listId },
+                {
+                    userId: listToUpdate.userId,
+                    name: listToUpdate.name,
+                    completed: listToUpdate.completed,
+                    ingredients: onHandUpdate
+                },
+                { new: true, runValidators: true }
+            );
+            return updatedList;
         }
-    }
+    },
 };
 
 module.exports = resolvers;
