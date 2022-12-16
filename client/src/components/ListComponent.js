@@ -3,7 +3,7 @@
 import {  } from '../utils/actions';
 import { useQuery } from '@apollo/client';
 import { GET_LIST } from '../utils/queries';
-import { useMutation } from '@apollo/client';
+// import { useMutation } from '@apollo/client';
 
 export default function ListComponent() {
     // const dispatch = useDispatch();
