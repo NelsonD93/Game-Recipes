@@ -1,6 +1,7 @@
 import React from 'react'
 import 'w3-css/w3.css';
-// import image from '../../src/images/botwBG.jpg';
+import mineLogo from '../../src/assets/images/minecraft.png';
+import botwLogo from '../../src/assets/images/botw.png'
 import Navbar from '../components/Navbar'
 
 function Game() {
@@ -31,19 +32,22 @@ function Game() {
             <div class="w3-row-padding">
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding" style={{
-                backgroundImage: `url('/images/minecraft.png')`,
-                backgroundRepeat: 'no-repeat',
-                height: '60vh',
-                width: '100%',
-            }}>Minecraft</div>
+                        <div class="w3-display-topleft w3-black w3-padding">Minecraft</div>
+                        <img src={mineLogo} className="mineblock" alt="minecraft grass block" />
+                    </div>
+                </div>
+
+                <div class="w3-col l3 m6 w3-margin-bottom">
+                    <div class="w3-display-container">
+                        <div class="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
+                        <img src={botwLogo} className="zeldaLogo"/>
                     </div>
                 </div>
 
             </div>
 
-</div>
-            );
+        </div>
+    );
 }
 
-            export default Game;
+export default Game;
