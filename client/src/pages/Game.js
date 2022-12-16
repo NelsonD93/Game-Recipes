@@ -38,7 +38,9 @@ function Game() {
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
+
                         <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/>
+
                     </div>
                 </div>
 
