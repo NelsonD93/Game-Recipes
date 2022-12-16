@@ -1,5 +1,6 @@
 import React from 'react'
 import 'w3-css/w3.css';
+import '../assets/css/Game.css';
 import mineLogo from '../../src/assets/images/minecraft.png';
 import botwLogo from '../../src/assets/images/botw.png';
 import mineBG from '../../src/assets/images/minecraftBG.jpg';
@@ -13,10 +14,10 @@ function Game() {
         <div>
             <Navbar />
             <div className="w3-display-container w3-content w3-wide">
-                <img src={mineBG}/>
+                <img src={mineBG} alt='minecraft background'/>
                 <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
-                        <span className="w3-padding w3-black w3-opacity-min ">
+                        <span className="w3-padding w3-black w3-opacity-min alex-test">
                             <b>WIKICRAFT</b></span>
                         <span className="w3-hide-small w3-text-light-grey"></span>
                     </h1>
