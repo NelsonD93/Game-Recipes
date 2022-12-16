@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 // *** start Liz added code from 21-25 App.js
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -11,6 +12,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 // need to import pages and components
 
@@ -47,39 +49,15 @@ function App() {
     // *** start Liz added code from 21-25 App.js
     <ApolloProvider client={client}>
       <Router>
-      <Routes>
-            <Route
-              path='/'
-              element={<Home/>}
-            />
-       </Routes>
-       
-        {/* end Liz added */}
-        {/* <div>
-          <Header>
-          
-          </Header>
-        </div> */}
-        {/* <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div> */}
-        {/* start Liz added */}
-      </Router>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+            
+          <Route path='/Profile' element={<Profile />}>
+          </Route>
+        </Routes>
+        </Router>
+     
     </ApolloProvider>
-    // end Liz added
   );
 }
 
