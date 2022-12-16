@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import React, { useState } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
 import {  } from '../utils/actions';
 import { useQuery } from '@apollo/client';
 import { GET_LISTS } from '../utils/queries';
@@ -16,11 +16,17 @@ export default function ListComponent() {
 
     console.log(data)
 
-    // let listData = data.getList;
+    let listData = data.getLists;
 
-    // if (loading) {
-    //     return <h2>LOADING...</h2>;
-    //   }
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
 
-    return (<h2>Stuff</h2>)
+    return (
+        <>
+        {/* <h2>{listData[11].name}</h2>
+        <h2>{listData[11].buildStack[0].itemName}</h2> */}
+        <h2>stuff</h2>
+        </>
+    )
 }

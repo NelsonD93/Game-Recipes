@@ -9,17 +9,18 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
+import ListComponent from './components/ListComponent';
 
 
 // need to import pages and components
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: '/graphql/',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -56,7 +57,7 @@ function App() {
         <Routes>
             <Route
               path='/'
-              element={<Game/>}
+              element={<ListComponent/>}
             />
             
           <Route path='/Profile' element={<Profile />}>
