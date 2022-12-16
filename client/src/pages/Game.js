@@ -4,6 +4,7 @@ import '../assets/css/Game.css';
 import mineLogo from '../../src/assets/images/minecraft.png';
 import botwLogo from '../../src/assets/images/botw.png';
 import mineBG from '../../src/assets/images/minecraftBG.jpg';
+import ListComponent from '../components/ListComponent';
 
 import Navbar from '../components/Navbar';
 
@@ -46,7 +47,8 @@ function Game() {
                 </div>
 
             </div>
-
+            <ListComponent/>
+            {/* <Login/> */}
         </div>
     );
 }
