@@ -70,3 +70,35 @@ export const GET_ONE_USER = gql`
     }
 `;
 
+export const GET_LIST= gql`
+    query getList ($userId:ID!) {
+    user (listId: $listId) {
+        _id
+        name
+        userId
+        ingredients
+        completed
+        buildStack
+    }
+    }
+`;
+
+export const GET_USERS = gql`
+    query getUsers {
+    getUsers {
+        _id
+        name
+        }
+    }
+`;
+
+export const GET_LISTS = gql`
+    query getLists {
+    getLists {
+        _id
+        name
+        }
+    }
+`;
+
+
