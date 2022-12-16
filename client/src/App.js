@@ -9,17 +9,19 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
+// import ListComponent from './components/ListComponent';
 
 
 // need to import pages and components
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  // uri: 'http://localhost:3001/graphql/',
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,6 +39,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
+
   cache: new InMemoryCache(),
 });
 
