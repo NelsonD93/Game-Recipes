@@ -13,6 +13,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import Game from './pages/Game';
+
 
 // need to import pages and components
 
@@ -49,14 +51,19 @@ function App() {
     // *** start Liz added code from 21-25 App.js
     <ApolloProvider client={client}>
       <Router>
+
         <Routes>
-          <Route path='/' element={<Home />}/>
+            <Route
+              path='/'
+              element={<Game/>}
+            />
             
           <Route path='/Profile' element={<Profile />}>
           </Route>
         </Routes>
         </Router>
      
+
     </ApolloProvider>
   );
 }

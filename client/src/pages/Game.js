@@ -1,8 +1,10 @@
 import React from 'react'
 import 'w3-css/w3.css';
 import mineLogo from '../../src/assets/images/minecraft.png';
-import botwLogo from '../../src/assets/images/botw.png'
-import Navbar from '../components/Navbar'
+import botwLogo from '../../src/assets/images/botw.png';
+import mineBG from '../../src/assets/images/minecraftBG.jpg';
+
+import Navbar from '../components/Navbar';
 
 function Game() {
 
@@ -10,12 +12,8 @@ function Game() {
 
         <div>
             <Navbar />
-            <div className="w3-display-container w3-content w3-wide" style={{
-                backgroundImage: `url('/images/minecraftBG.jpg')`,
-                backgroundRepeat: 'no-repeat',
-                height: '75vh',
-                width: '100%',
-            }}>
+            <div className="w3-display-container w3-content w3-wide">
+                <img src={mineBG}/>
                 <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
                         <span className="w3-padding w3-black w3-opacity-min ">
@@ -40,7 +38,9 @@ function Game() {
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
-                        <img src={botwLogo} className="zeldaLogo" alt='Zelda'/>
+
+                        <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/>
+
                     </div>
                 </div>
 
