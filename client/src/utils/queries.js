@@ -74,11 +74,20 @@ export const GET_LIST= gql`
     query getList ($userId:ID!) {
     user (listId: $listId) {
         _id
+        listID
         name
-        userId
-        ingredients
+        ingredients{
+            itemId
+            itemName
+            qty
+            onHand
+        }
         completed
-        buildStack
+        buildStack{
+            itemId
+            itemName
+            qty
+        }
     }
     }
 `;
