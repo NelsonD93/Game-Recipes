@@ -2,13 +2,12 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react'
 import 'w3-css/w3.css';
-// import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar';
 
 
 const Profile = () => {
 
   return (
-
 
     <><div>
       <header className="w3-display-container w3-content w3-wide" id="home" style={{
