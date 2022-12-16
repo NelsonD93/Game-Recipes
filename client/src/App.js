@@ -20,7 +20,8 @@ import ListComponent from './components/ListComponent';
 // need to import pages and components
 
 const httpLink = createHttpLink({
-  uri: '/graphql/',
+  // uri: 'http://localhost:3001/graphql/',
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -57,7 +58,7 @@ function App() {
         <Routes>
             <Route
               path='/'
-              element={<ListComponent/>}
+              element={<Game/>}
             />
             
           <Route path='/Profile' element={<Profile />}>

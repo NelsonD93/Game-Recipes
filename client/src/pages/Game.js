@@ -48,7 +48,6 @@ function Game() {
 
             </div>
             <ListComponent/>
-            {/* <Login/> */}
         </div>
     );
 }
