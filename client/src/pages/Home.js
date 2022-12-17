@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 // import Navbar from '../components/Navbar';
 import botwBG from '../../src/assets/images/botwBG.jpg';
+// import 'w3-css/w3.css';
 
 function Home() {
     return (
@@ -8,7 +9,10 @@ function Home() {
         <div>
             <Header />
             
-                    <img src={botwBG} class="homeBG"alt="breath of the wild scenery"/>
+                    <img src={botwBG} className="homeBG" alt="breath of the wild scenery" style={{
+                        maxHeight: '600px',
+                        minWidth: '1600px'
+                    }}/>
                     <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
                         <span className="w3-padding w3-black w3-opacity-min ">
@@ -21,7 +25,7 @@ function Home() {
                 <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
                 <p style={{whiteSpace: 'pre-line'}}>
             Welcome to Wikicraft, your new favorite crafting game helper!<br/>
-            This application came from the minds of Wikidev, a team of like-minded web developers made up of Alex Bellamy, Liz RZ, Nelson Drozd, and Graham Johnson.<br/>
+            This application came from the minds of Wikidev, a team of like-minded web developers made up of Alex Bellamy, Liz RZ, Nelson Drozd, Graham Johnson, and Kerri Sosinski.<br/>
             This site was created as a way to consolidate crafting recipes for different video games as an easier way to keep track of items you may already have, and those you still need to collect.<br/>
             Wikicraft allows you to browse the recipes for your favorite games, and tells you what necessary items you're still missing from your inventory.<br/>
             We hope you enjoy our site, and remember to check back regularly for new updates.<br/>
