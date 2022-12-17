@@ -80,6 +80,7 @@ type List {
     getList(listId:ID!): List
     getUsers: [User]
     getLists: [List]
+    me: User
   }
 
   type Mutation {

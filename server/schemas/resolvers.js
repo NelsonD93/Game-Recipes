@@ -22,6 +22,12 @@ const resolvers = {
         getOneUser: async (parent, { userId }, context) => {
             return User.findOne({ _id: userId }).populate('lists');
         },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id }).populate('lists');
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         getList: async (parent, { listId }) => {
             return List.findOne({ _id: listId });
         },
@@ -225,7 +231,7 @@ const resolvers = {
 
         // Update the on hand quantities in the ingredients list with input values from the user. onHandUpdate is an ingredients array constructed on the client side.
         updateOnHand: async (parent, { listId, onHandUpdate }, context) => {
-            const listToUpdate = await List.findOne({_id: listId});
+            const listToUpdate = await List.findOne({ _id: listId });
             const updatedList = await List.findOneAndReplace(
                 { _id: listId },
                 {
