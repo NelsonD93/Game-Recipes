@@ -27,8 +27,8 @@ function Home() {
             </div>
 
             <div className="w3-container w3-padding-32" id="about">
-                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-                <p style={{ whiteSpace: 'pre-line' }}>
+                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16 text">About</h3>
+                <p className="text" style={{ whiteSpace: 'pre-line', }}>
                     Welcome to Wikicraft, your new favorite crafting game helper!<br />
                     This application came from the minds of Wikidev, a team of like-minded web developers made up of Alex Bellamy, Liz RZ, Nelson Drozd, Graham Johnson, and Kerri Sosinski.<br />
                     This site was created as a way to consolidate crafting recipes for different video games as an easier way to keep track of items you may already have, and those you still need to collect.<br />
@@ -41,14 +41,15 @@ function Home() {
             </div>
 
             <div className="w3-container w3-padding-32" id="games">
-                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Games</h3>
+                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16 text">Games</h3>
             </div>
 
             <div className="w3-row-padding">
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Minecraft</div>
-                        <img src={mineLogo} className="mineblock" alt="minecraft grass block" />
+
+                        <a href='' > <img src={mineLogo} className="mineblock" alt="minecraft grass block" /> </a>
                     </div>
                 </div>
 
@@ -56,7 +57,7 @@ function Home() {
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
 
-                        <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" />
+                       <a href='' > <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/> </a>
 
                     </div>
                 </div>
@@ -64,14 +65,14 @@ function Home() {
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Subnautica</div>
-                        <img src={subnautica} className="subLogo" alt="Subnautica logo"/>
+                       <a href='' > <img src={subnautica} className="subLogo" alt="Subnautica logo"/> </a>
                     </div>
                 </div>
 
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
-                        <img src={stardew} className="starLogo" alt="stardew valley logo"/>
+                        <a href='' > <img src={stardew} className="starLogo" alt="stardew valley logo"/> </a> 
                     </div>
                 </div>
 
