@@ -1,3 +1,9 @@
 .alex-test {
     font-size: 200px;
 }
+
+.homeBG {
+ display: flex;
+ justify-content: center;
+ background-size: cover;
+}
