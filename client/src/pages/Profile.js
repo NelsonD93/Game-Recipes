@@ -2,10 +2,22 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react'
 import 'w3-css/w3.css';
-
+// import GameRecipeComponent from '../components/GameRecipesComponent';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
 
 
 const Profile = () => {
+
+  const {loading, data} = useQuery(GET_ME);  
+
+  let userData;
+  if (loading) {
+    return <h2>LOADING...</h2>;
+} else {
+    userData = data.me;
+    console.log(userData)
+}
 
   return (
 
@@ -31,11 +43,10 @@ const Profile = () => {
         <div className="w3-row-padding">
           <div className="w3-container">
             <h1 className="w3-border-bottom w3-border-light-grey w3-padding-16">Account Info:</h1>
-            <h3>Username:</h3>
-            <h3>Email:</h3>
+            <h3>Username: {userData.name}</h3>
+            <h3>Email: {userData.email}</h3>
           </div>
         </div>
-
 
         <footer className="w3-center w3-black w3-padding-16">
           <p>TBD</p>
