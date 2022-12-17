@@ -3,52 +3,48 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 // import 'w3-css/w3.css';
 
-const Login = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(
-    LOGIN_USER
-  );
-
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
-    try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
-
-      Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
-    }
-
-    // clear form values
-    setFormState({
+const Signup = () => {
+    const [formState, setFormState] = useState({
+      name: '',
       email: '',
       password: '',
     });
-  };
+    const [addUser, { error, data }] = useMutation(ADD_USER);
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+  
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
+  
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(formState);
+  
+      try {
+        const { data } = await addUser({
+          variables: { ...formState },
+        });
+  
+        Auth.login(data.addUser.token);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+  
 
   return (
     <div className="w3-padding-48">
       <div className="w3-display-container">
-        <div className="w3-display-topleft w3-black w3-padding">Login</div>
+        <div className="w3-display-topleft w3-black w3-padding">Signup</div>
         <div className="w3-padding-48">
           <div className="w3-col 26 m6 w3-margin-bottom">
             <div className="w3-display-container w3-padding-large">
@@ -60,6 +56,16 @@ const Login = () => {
                   </p>
                 ) : (
                   <form onSubmit={handleFormSubmit}>
+                     <input
+                      className="w3-input"
+                      placeholder="Your name"
+                      name="name"
+                      type="text"
+                      width='90%'
+                      value={formState.name}
+                      onChange={handleChange}
+                    />
+
                     <input
                       className="w3-input"
                       placeholder="Your email"
@@ -101,4 +107,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

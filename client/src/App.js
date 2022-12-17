@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
 import Gather from './pages/Gather';
@@ -70,6 +71,11 @@ function App() {
             <Route
               path='/Login'
               element={<Login />}
+            />
+            {/* Signup page will contain login and signup components */}
+            <Route
+              path='/Signup'
+              element={<Signup />}
             />
             {/* Profile page will contain the username, email and any open lists, maybe add completed builds? */}
             <Route
