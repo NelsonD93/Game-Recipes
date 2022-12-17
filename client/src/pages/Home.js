@@ -19,7 +19,14 @@ function Home() {
                 
             <div className="w3-container w3-padding-32" id="about">
                 <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
-                <p>
+                <p style={{whiteSpace: 'pre-line'}}>
+            Welcome to Wikicraft, your new favorite crafting game helper!<br/>
+            This application came from the minds of Wikidev, a team of like-minded web developers made up of Alex Bellamy, Liz RZ, Nelson Drozd, and Graham Johnson.<br/>
+            This site was created as a way to consolidate crafting recipes for different video games as an easier way to keep track of items you may already have, and those you still need to collect.<br/>
+            Wikicraft allows you to browse the recipes for your favorite games, and tells you what necessary items you're still missing from your inventory.<br/>
+            We hope you enjoy our site, and remember to check back regularly for new updates.<br/>
+            Happy crafting!
+            
 
                 </p>
             </div>
