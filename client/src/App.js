@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import '../src/assets/css/Game.css';
 // *** start Liz added code from 21-25 App.js
 import React from 'react';
 import {

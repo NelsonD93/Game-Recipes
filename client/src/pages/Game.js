@@ -24,30 +24,7 @@ function Game() {
                         <span className="w3-hide-small w3-text-light-grey"></span>
                     </h1>
                 </div>
-            
 
-            {/* <div className="w3-container w3-padding-32" id="games">
-                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Games</h3>
-            </div>
-
-            <div className="w3-row-padding">
-                <div className="w3-col l3 m6 w3-margin-bottom">
-                    <div className="w3-display-container">
-                        <div className="w3-display-topleft w3-black w3-padding">Minecraft</div>
-                        <img src={mineLogo} className="mineblock" alt="minecraft grass block" />
-                    </div>
-                </div>
-
-                <div className="w3-col l3 m6 w3-margin-bottom">
-                    <div className="w3-display-container">
-                        <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
-
-                        <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" />
-
-                    </div>
-                </div>
-
-            </div> */}
             {/* <ListComponent/> */}
         </div>
     );

@@ -1,14 +1,4 @@
-/* .alex-test {
-    font-size: 200px;
-} */
-
-/* .homeBG {
- display: flex;
- justify-content: center;
- background-position: center;
- background-size: cover;
-
-} */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@200;300;400&display=swap');
 
 .subLogo {
     max-width: 300px;
@@ -17,3 +7,8 @@
 .starLogo {
     max-width: 300px;
 }
+
+.text {
+    font-family: 'Raleway', sans-serif;
+}
+
