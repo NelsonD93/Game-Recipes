@@ -9,10 +9,10 @@ type Game {
 
 
 type Item {
-_id: ID!
-name: String!
+_id: ID
+name: String
 description: String
-gameId: ID!
+gameId: ID
 recipe: [Ingredient]
 }
 
@@ -32,35 +32,35 @@ type Ingredient {
 }
 
 type Build {
-  itemId: ID!
-  itemName: String!
-  qty: Int!
+  itemId: ID
+  itemName: String
+  qty: Int
   ingredients: [Ingredient]
 }
 
 type Bag {
-  _id: ID!
-  gameId: ID!
-  userId: ID!
+  _id: ID
+  gameId: ID
+  userId: ID
   ingredients: [Ingredient]
 }
 
 type User {
-  _id: ID!
-  name: String!
-  email: String!
-  password: String!
+  _id: ID
+  name: String
+  email: String
+  password: String
   games: [ID]
   bags: [ID]
-  lists: [ID]
+  lists: [List]
 }
 
 type List {
-  _id: ID!
-  name: String!
-  userId: ID!
+  _id: ID
+  name: String
+  userId: ID
   ingredients: [Ingredient]
-  completed: Boolean!
+  completed: Boolean
   buildStack: [Build]
 }
 

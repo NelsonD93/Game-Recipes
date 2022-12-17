@@ -1,15 +1,15 @@
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        _id
-        name
-      }
+mutation login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    user {
+      _id
+      name
     }
   }
+}
 `;
 
 export const ADD_USER = gql`
@@ -27,16 +27,18 @@ export const ADD_USER = gql`
 
 // not sure if recipe:$recipe is correct below because it needs to return an array
 export const ADD_ITEM = gql`
-  mutation addItem($name: String!, $description: String!, $gameId: ID!, recipe: [IngredientInput]) {
-    addItem(name: $name, description: $description, gameId: $gameId, recipe: $recipe) {
-        _id
-        name
-        description
-        gameId
-        recipe
-      
+mutation addItem($name: String!, $description: String!, $gameId: ID!, $recipe: [IngredientInput]) {
+  addItem(name: $name, description: $description, gameId: $gameId, recipe: $recipe) {
+    _id
+    name
+    description
+    recipe {
+      itemId
+      itemName
+      qty
     }
   }
+}
 `;
 
 // not sure if admins is right because it needs to return an array
@@ -81,31 +83,30 @@ export const SUB_TO_GAME = gql`
 `;
 
 export const BUILD_LIST = gql`
-  mutation buildList($itemId: ID!, $userId: ID!, $name: String!, buildQty: Int!) {
-    buildList(itemId: $itemId, userId: $userId, name: $name, buildQty: $buildQty) {
-        _id
-        name
-        userId
-        ingredients {
-            itemId
-            itemName
-            qty
-            onHand
-        }
-        completed
-        buildStack {
-            itemId
-            itemName
-            qty
-            ingredients {
-                itemId
-                itemName
-                qty
-                onHand
-            }
-        }
+mutation buildList($itemId: ID!, $userId: ID!, $name: String!, $buildQty: Int!) {
+  buildList(itemId: $itemId, userId: $userId, name: $name, buildQty: $buildQty) {
+    _id
+    name
+    ingredients {
+      itemId
+      itemName
+      qty
+      onHand
     }
+    completed
+    buildStack {
+      itemId
+      itemName
+      qty
+      ingredients {
+        itemId
+        itemName
+        qty
+      }
+    }
+    userId
   }
+}
 `;
 
 // not sure if onHandUpdate is correct below
