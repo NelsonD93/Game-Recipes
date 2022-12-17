@@ -36,6 +36,13 @@ function Navbar({ currentPage, handlePageChange }) {
                     </NavLink>
 
                     <NavLink
+                        to='/Signup'
+                        className="w3-bar-item w3-button"
+                    >
+                        Signup
+                    </NavLink>
+
+                    <NavLink
                         to='/Game'
                         className="w3-bar-item w3-button"
                     >

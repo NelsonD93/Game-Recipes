@@ -6,16 +6,13 @@ import botwLogo from '../../src/assets/images/botw.png';
 import mineBG from '../../src/assets/images/minecraftBG.jpg';
 // import ListComponent from '../components/ListComponent';
 
-import Navbar from '../components/Navbar';
 
 function Game() {
 
     return (
-
         <div>
-            <Navbar />
             <div className="w3-display-container w3-content w3-wide">
-                <img src={mineBG} alt='minecraft background'/>
+                <img src={mineBG} alt='minecraft background' />
                 <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
                         <span className="w3-padding w3-black w3-opacity-min alex-test">
@@ -41,7 +38,7 @@ function Game() {
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
 
-                        <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/>
+                        <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" />
 
                     </div>
                 </div>
