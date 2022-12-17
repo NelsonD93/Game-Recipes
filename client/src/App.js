@@ -16,6 +16,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
+import GameTest from './pages/GameTest';
 import Gather from './pages/Gather';
 import Craft from './pages/Craft';
 import Navbar from './components/Navbar';
@@ -86,6 +87,11 @@ function App() {
             <Route
               path='/Game'
               element={<Game />}
+            />
+             {/* Game test page will contain list of all recipes for that game */}
+             <Route
+              path='/GameTest'
+              element={<GameTest />}
             />
             {/* Gather page will be where user gathers items for recipe */}
             <Route
