@@ -25,21 +25,21 @@ function Game() {
                 </div>
             </div>
 
-            <div class="w3-container w3-padding-32" id="games">
-                <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Games</h3>
+            <div className="w3-container w3-padding-32" id="games">
+                <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">Games</h3>
             </div>
 
-            <div class="w3-row-padding">
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Minecraft</div>
+            <div className="w3-row-padding">
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Minecraft</div>
                         <img src={mineLogo} className="mineblock" alt="minecraft grass block" />
                     </div>
                 </div>
 
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
 
                         <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/>
 
