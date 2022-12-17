@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 // import Navbar from '../components/Navbar';
 import botwBG from '../../src/assets/images/botwBG.jpg';
+import 'w3-css/w3.css';
 
 function Home() {
     return (
@@ -8,7 +9,10 @@ function Home() {
         <div>
             <Header />
             
-                    <img src={botwBG} class="homeBG"alt="breath of the wild scenery"/>
+                    <img src={botwBG} className="homeBG" alt="breath of the wild scenery" style={{
+                        maxHeight: '600px',
+                        minWidth: '1600px'
+                    }}/>
                     <div className="w3-display-middle w3-margin-top w3-center">
                     <h1 className="w3-xxlarge w3-text-white">
                         <span className="w3-padding w3-black w3-opacity-min ">
