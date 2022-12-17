@@ -32,7 +32,7 @@ function Navbar({ currentPage, handlePageChange }) {
                         to='/Login'
                         className="w3-bar-item w3-button"
                     >
-                        Bag
+                        Login
                     </NavLink>
 
                     <NavLink

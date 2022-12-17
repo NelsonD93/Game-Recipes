@@ -12,7 +12,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
 import Gather from './pages/Gather';
@@ -67,10 +67,10 @@ function App() {
               element={<Home />}
             />
             {/* Login page will contain login and signup components */}
-            <Route
+            {/* <Route
               path='/Login'
               element={<Login />}
-            />
+            /> */}
             {/* Profile page will contain the username, email and any open lists, maybe add completed builds? */}
             <Route
               path='/Profile'
