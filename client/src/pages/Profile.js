@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react'
 import 'w3-css/w3.css';
-// import GameRecipeComponent from '../components/GameRecipesComponent';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
@@ -27,7 +26,6 @@ const Profile = () => {
       }}>
 
 
-        <img className="w3-image" src="./images/botw02.jpg" alt="picture of minecraft forest" width="1500" height="800" />
         <div className="w3-display-middle w3-margin-top w3-center">
           <h1 className="w3-xxlarge w3-text-white"><span className="w3-padding w3-black w3-opacity-min "><b>WIKICRAFT</b></span>
             <span className="w3-hide-small w3-text-light-grey"></span></h1>
@@ -47,7 +45,7 @@ const Profile = () => {
             <h3>Email: {userData.email}</h3>
           </div>
         </div>
-
+        
         <footer className="w3-center w3-black w3-padding-16">
           <p>TBD</p>
         </footer>
