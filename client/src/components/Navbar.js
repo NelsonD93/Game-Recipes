@@ -3,9 +3,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import 'w3-css/w3.css';
 
+import Auth from '../utils/auth';
+
+
 
 
 function Navbar({ currentPage, handlePageChange }) {
+    const logout = (event) => {
+        event.preventDefault();
+        Auth.logout();
+    };
 
     return (
         <div className="w3-top">
@@ -19,35 +26,50 @@ function Navbar({ currentPage, handlePageChange }) {
                 </NavLink>
 
                 <div className="w3-right w3-hide-small">
-                    <NavLink
-                        to='/Profile'
-                        className="w3-bar-item w3-button"
 
-                    >
-                        Profile
-                    </NavLink>
+                    {Auth.loggedIn() ? (
+                        <>
+                            <NavLink
+                                to='/Profile'
+                                className="w3-bar-item w3-button"
+
+                            >
+                                Profile
+                            </NavLink>
+
+                            <NavLink
+                                to='/Game'
+                                className="w3-bar-item w3-button"
+                            >
+                                Games
+                            </NavLink>
+
+                            <button className="w3-bar-item w3-button" onClick={logout}>
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+
+                        <>
 
 
-                    <NavLink
-                        to='/Login'
-                        className="w3-bar-item w3-button"
-                    >
-                        Login
-                    </NavLink>
+                            <NavLink
+                                to='/Login'
+                                className="w3-bar-item w3-button"
+                            >
+                                Login
+                            </NavLink>
 
-                    <NavLink
-                        to='/Signup'
-                        className="w3-bar-item w3-button"
-                    >
-                        Signup
-                    </NavLink>
+                            <NavLink
+                                to='/Signup'
+                                className="w3-bar-item w3-button"
+                            >
+                                Signup
+                            </NavLink>
+                        </>
+                    )}
 
-                    <NavLink
-                        to='/Game'
-                        className="w3-bar-item w3-button"
-                    >
-                        Games
-                    </NavLink>
+
                 </div>
             </div>
         </div>
