@@ -20,7 +20,7 @@ const resolvers = {
             return Bag.findOne({ gameId: gameId, userId: userId })
         },
         getOneUser: async (parent, { userId }, context) => {
-            return User.findOne({ _id: userId })
+            return User.findOne({ _id: userId }).populate('lists');
         },
         getList: async (parent, { listId }) => {
             return List.findOne({ _id: listId });
@@ -144,6 +144,7 @@ const resolvers = {
             }
             // The item that the user wants to make
             const endItem = await Item.findOne({ _id: itemId });
+            console.log(endItem)
             const endIngredients = [...endItem.recipe];
             const endName = endItem.name;
             buildStack.unshift({
@@ -210,6 +211,15 @@ const resolvers = {
                 ingredients: groupedRawArray,
                 buildStack: buildStack
             })
+            const updatedUser = await User.findOneAndUpdate(
+                { _id: userId },
+                {
+                    $addToSet: {
+                        lists: newList._id
+                    }
+                },
+                { new: true, runValidators: true }
+            );
             return newList;
         },
 
