@@ -111,7 +111,19 @@ query getLists {
     }
     completed
   }
-}
-`;
+}`;
+
+export const GET_ME = gql`
+query me {
+  me {
+    _id
+    name
+    email
+    lists {
+      _id
+      name
+    }
+  }
+}`;
 
 

@@ -22,11 +22,17 @@ const resolvers = {
         getOneUser: async (parent, { userId }, context) => {
             return User.findOne({ _id: userId }).populate('lists');
         },
+        me: async (parent, args, context) => {
+            if (context.user) {
+                return User.findOne({ _id: context.user._id }).populate('lists');
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         getList: async (parent, { listId }) => {
             return List.findOne({ _id: listId });
         },
         getUsers: async () => {
-            return User.find({})
+            return User.find({}).populate('lists');
         },
         getLists: async (parent) => {
             return List.find({});
@@ -105,7 +111,13 @@ const resolvers = {
 
         // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
 
-        buildList: async (parent, { itemId, name, userId, buildQty }) => {
+        buildList: async (parent, { itemId, name, userId, buildQty }, context) => {
+            let currentUserId;
+            if (context.user) {
+                currentUserId = context.user._id;       
+            } else {
+                currentUserId = userId;
+            }
             // Starting array of raw materials. Ingredient objects will be added to it via recursiveList function. Ingredients will need to be grouped by name/id after and quantities added together. Populated by Ingredient objects.
             const ungroupedRawArray = [];
             // Stack of items to build. Build items will be unshifted onto it and later shifted off. Populated by Ingredient objects.
@@ -207,12 +219,12 @@ const resolvers = {
 
             const newList = await List.create({
                 name: name,
-                userId: userId,
+                userId: currentUserId,
                 ingredients: groupedRawArray,
                 buildStack: buildStack
             })
             const updatedUser = await User.findOneAndUpdate(
-                { _id: userId },
+                { _id: currentUserId },
                 {
                     $addToSet: {
                         lists: newList._id
@@ -225,7 +237,7 @@ const resolvers = {
 
         // Update the on hand quantities in the ingredients list with input values from the user. onHandUpdate is an ingredients array constructed on the client side.
         updateOnHand: async (parent, { listId, onHandUpdate }, context) => {
-            const listToUpdate = await List.findOne({_id: listId});
+            const listToUpdate = await List.findOne({ _id: listId });
             const updatedList = await List.findOneAndReplace(
                 { _id: listId },
                 {

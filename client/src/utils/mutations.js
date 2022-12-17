@@ -83,7 +83,7 @@ export const SUB_TO_GAME = gql`
 `;
 
 export const BUILD_LIST = gql`
-mutation buildList($itemId: ID!, $userId: ID!, $name: String!, $buildQty: Int!) {
+mutation buildList($itemId: ID!, $userId: ID, $name: String!, $buildQty: Int!) {
   buildList(itemId: $itemId, userId: $userId, name: $name, buildQty: $buildQty) {
     _id
     name

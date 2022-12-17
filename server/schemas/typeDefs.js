@@ -80,6 +80,7 @@ type List {
     getList(listId:ID!): List
     getUsers: [User]
     getLists: [List]
+    me: User
   }
 
   type Mutation {
@@ -89,7 +90,7 @@ type List {
     addGame(name:String!,admins:[ID]): Game
     addBag(gameId:ID!, userId:ID!): Bag
     subToGame(gameId:ID!): User
-    buildList(itemId:ID!, userId:ID!, name:String!, buildQty: Int!): List
+    buildList(itemId:ID!, userId:ID, name:String!, buildQty: Int!): List
     updateOnHand(listId:ID!, onHandUpdate:[IngredientInput!]): List
 
   }
