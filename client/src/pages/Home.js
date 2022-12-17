@@ -1,11 +1,10 @@
 import Header from '../components/Header';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 
 function Home() {
     return (
         // pass props to navbar
         <div>
-            <Navbar />
             <Header />
             <div className="w3-container w3-padding-32" id="about">
                 <h3 className="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
