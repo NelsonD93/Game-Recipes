@@ -12,14 +12,20 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
+import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Game from './pages/Game';
+import Gather from './pages/Gather';
+import Craft from './pages/Craft';
+import Navbar from './components/Navbar';
+// import ListComponent from './components/ListComponent';
 
 
 // need to import pages and components
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  // uri: 'http://localhost:3001/graphql/',
+  uri: '/graphql'
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,6 +43,7 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
+
   cache: new InMemoryCache(),
 });
 
@@ -51,18 +58,45 @@ function App() {
     // *** start Liz added code from 21-25 App.js
     <ApolloProvider client={client}>
       <Router>
-
-        <Routes>
+        <div>
+        <Navbar />
+          <Routes>
+            {/* Home page for app will contain the images of the 4 games that are links to the 4 games */}
             <Route
               path='/'
-              element={<Game/>}
+              element={<Home />}
             />
-            
-          <Route path='/Profile' element={<Profile />}>
-          </Route>
-        </Routes>
-        </Router>
-     
+            {/* Login page will contain login and signup components */}
+            <Route
+              path='/Login'
+              element={<Login />}
+            />
+            {/* Profile page will contain the username, email and any open lists, maybe add completed builds? */}
+            <Route
+              path='/Profile'
+              element={<Profile />}
+            />
+            {/* Game page will contain list of all recipes for that game */}
+            <Route
+              path='/Game'
+              element={<Game />}
+            />
+            {/* Gather page will be where user gathers items for recipe */}
+            <Route
+              path='/Gather'
+              element={<Gather />}
+            />
+            {/* Craft page will be where user gathers items for recipe */}
+            <Route
+              path='/Craft'
+              element={<Craft />}
+            />
+
+
+          </Routes>
+        </div>
+      </Router>
+
 
     </ApolloProvider>
   );
