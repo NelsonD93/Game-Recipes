@@ -8,8 +8,8 @@ import 'w3-css/w3.css';
 const Profile = () => {
 
   return (
-
-    <><div>
+<div>
+    <div>
       <header className="w3-display-container w3-content w3-wide" id="home" style={{
         maxwidth: '1500px',
       }}>
@@ -37,10 +37,12 @@ const Profile = () => {
         </div>
 
 
-        <footer className="w3-center w3-black w3-padding-16">
-          <p>TBD</p>
-        </footer>
-      </div></>
+        
+      </div>
+      <footer className="w3-center w3-black w3-padding-16">
+                <p>WIKICRAFT by WIKIDEV</p>
+            </footer>
+      </div>
   )
 }
 

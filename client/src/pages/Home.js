@@ -57,7 +57,7 @@ function Home() {
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
 
-                       <a href='' > <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo"/> </a>
+                        <a href='' > <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /> </a>
 
                     </div>
                 </div>
@@ -65,20 +65,22 @@ function Home() {
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Subnautica</div>
-                       <a href='' > <img src={subnautica} className="subLogo" alt="Subnautica logo"/> </a>
+                        <a href='' > <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </a>
                     </div>
                 </div>
 
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
-                        <a href='' > <img src={stardew} className="starLogo" alt="stardew valley logo"/> </a> 
+                        <a href='' > <img src={stardew} className="starLogo" alt="stardew valley logo" /> </a>
                     </div>
                 </div>
 
             </div>
 
-
+            <footer className="w3-center w3-black w3-padding-16">
+                <p>WIKICRAFT by WIKIDEV</p>
+            </footer>
 
         </div>
     );
