@@ -25,19 +25,19 @@ const userSchema = new Schema(
         games: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Game',
+                ref: 'game',
             }
         ],
         bags: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Bag',
+                ref: 'bag',
             }
         ],
         lists: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'List',
+                ref: 'list',
             }
 
         ]
