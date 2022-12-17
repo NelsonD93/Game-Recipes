@@ -17,6 +17,7 @@ import Profile from './pages/Profile';
 import Game from './pages/Game';
 import Gather from './pages/Gather';
 import Craft from './pages/Craft';
+import Navbar from './components/Navbar';
 // import ListComponent from './components/ListComponent';
 
 
@@ -58,6 +59,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+        <Navbar />
           <Routes>
             {/* Home page for app will contain the images of the 4 games that are links to the 4 games */}
             <Route

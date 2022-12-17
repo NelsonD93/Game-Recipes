@@ -11,8 +11,7 @@ function Navbar({ currentPage, handlePageChange }) {
         <div className="w3-top">
             <div className="w3-bar w3-white w3-wide w3-padding w3-card">
                 <NavLink
-                    href="#Home"
-                    onClick={() => handlePageChange('Home')}
+                    to='/'
                     className="w3-bar-item w3-button"
 
                 >
@@ -22,8 +21,6 @@ function Navbar({ currentPage, handlePageChange }) {
                 <div className="w3-right w3-hide-small">
                     <NavLink
                         to='/Profile'
-                        href="#Profile"
-                        onClick={() => handlePageChange('Profile')}
                         className="w3-bar-item w3-button"
 
                     >
@@ -32,16 +29,14 @@ function Navbar({ currentPage, handlePageChange }) {
 
 
                     <NavLink
-                        href="#Bag"
-                        onClick={() => handlePageChange('Bag')}
+                        to='/Login'
                         className="w3-bar-item w3-button"
                     >
                         Bag
                     </NavLink>
 
                     <NavLink
-                        href='#Game'
-                        onClick={() => handlePageChange('Game')}
+                        to='/Game'
                         className="w3-bar-item w3-button"
                     >
                         Games
