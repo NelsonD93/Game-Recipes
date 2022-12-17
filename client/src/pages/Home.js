@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 // import Navbar from '../components/Navbar';
 import botwBG from '../../src/assets/images/botwBG.jpg';
-import 'w3-css/w3.css';
+// import 'w3-css/w3.css';
 
 function Home() {
     return (
