@@ -7,7 +7,6 @@ import { GET_ME } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import stardewBG from '../assets/images/stardewBG.jpg';
 const Profile = () => {
-
   const { loading, data } = useQuery(GET_ME);
 
   let userData;

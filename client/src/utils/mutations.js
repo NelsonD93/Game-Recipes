@@ -137,3 +137,10 @@ export const UPDATE_ON_HAND = gql`
     }
   }
 `;
+export const DELETE_LIST = gql`
+mutation deleteList($listId: ID!, $userId: ID) {
+  deleteList(listId: $listId, userId: $userId) {
+    _id
+    name
+  }
+}`;
