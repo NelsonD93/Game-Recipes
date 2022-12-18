@@ -42,7 +42,7 @@ const Signup = () => {
   
 
   return (
-    <div className="w3-padding-48">
+    <div className="w3-padding-48 main">
       <div className="w3-display-container">
         <div className="w3-display-topleft w3-black w3-padding">Signup</div>
         <div className="w3-padding-48">
