@@ -7,6 +7,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        getGame: async (parent, { gameId }) => {
+            return Game.findOne({ _id: gameId })
+        },
         getGames: async (parent) => {
             return Game.find({})
         },
@@ -109,7 +112,7 @@ const resolvers = {
             }
         },
 
-        // Mutation to build a shopping list of raw materials needed to build an item. Takes an itemId as an argument and returns a list of ingredients
+        // Mutation to build a shopping list of raw materials needed to build an item. Additionally, creates a build order of items to make with the raw materials. Takes an itemId as an argument and returns a list of ingredients and a list of the build order.
 
         buildList: async (parent, { itemId, name, userId, buildQty }, context) => {
             let currentUserId;
