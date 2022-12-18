@@ -73,9 +73,6 @@ const Profile = () => {
 
 
       </div>
-      <footer className="w3-center w3-black w3-padding-16">
-        <p>WIKICRAFT by WIKIDEV</p>
-      </footer>
     </div>
 
   )
