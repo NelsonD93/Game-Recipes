@@ -47,12 +47,12 @@ export default function ListComponent(props) {
 
     return (
         <>
-            <h1>{listData.name}</h1>
-            <h3>Ingredients to Gather</h3> {" "}
+            <h1 className='text'>{listData.name}</h1>
+            <h3 className='text'>Ingredients to Gather</h3> {" "}
             {listData.ingredients.map((ingredient) => {
                 return (
                     <div>
-                        <ul>
+                        <ul className='text'>
                             <li>Ingredient name: {ingredient.itemName}</li>
                             <li>Quantity needed: {ingredient.qty}</li>
                             <li>Quantity on hand: {ingredient.onHand}</li>
@@ -60,16 +60,16 @@ export default function ListComponent(props) {
                     </div>
                 )
             })}
-            <h3>Items to Craft</h3>
+            <h3 className='text'>Items to Craft</h3>
             {listData.buildStack.map((item) => {
                 return (
                     <div>
-                        <ul>
+                        <ul className='text'>
                             <li>Item name: {item.itemName} Quantity: {item.qty}</li>
                             {item.ingredients.map((ingredient) => {
                                 return (
                                     <div>
-                                        <ul>
+                                        <ul className='text'>
                                             <li>Ingredient name: {ingredient.itemName} Quantity: {ingredient.qty}</li>
                                         </ul>
                                     </div>
@@ -79,7 +79,7 @@ export default function ListComponent(props) {
                     </div>
                 )
             })}
-            <button onClick={runDelete}>Complete List</button>
+            <button onClick={runDelete} className='text'>Complete List</button>
         </>
     )
 }
