@@ -101,7 +101,6 @@ function Home() {
                 
             </div>
 
-
         </div>
     );
 };

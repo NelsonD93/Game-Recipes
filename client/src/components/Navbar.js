@@ -1,6 +1,6 @@
 import React from 'react'
 // eslint-disable-next-line no-unused-vars
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import 'w3-css/w3.css';
 
 import Auth from '../utils/auth';
@@ -12,6 +12,7 @@ function Navbar({ currentPage, handlePageChange }) {
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
+
     };
 
     return (
@@ -37,10 +38,12 @@ function Navbar({ currentPage, handlePageChange }) {
                                 Profile
                             </NavLink>
 
-                       
-                            <button className="w3-bar-item w3-button" onClick={logout}>
+                            <NavLink 
+                                to='/'
+                                className="w3-bar-item w3-button" 
+                                onClick={logout} >
                                 Logout
-                            </button>
+                            </NavLink>
                         </>
                     ) : (
 
@@ -66,7 +69,7 @@ function Navbar({ currentPage, handlePageChange }) {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

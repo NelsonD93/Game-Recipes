@@ -53,7 +53,6 @@ function Game() {
                     </div>
                 </div>
 
-            </div>
         </div>
     );
 }
