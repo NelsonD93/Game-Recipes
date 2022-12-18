@@ -12,7 +12,7 @@ export default function GatherLinkComponent(props) {
     const navigate = useNavigate();
 
     const handleChange = (event) => {
-        setBuildQty(event.target.value);
+        setBuildQty(parseInt(event.target.value));
     };
 
     // eslint-disable-next-line no-unused-vars
@@ -21,6 +21,7 @@ export default function GatherLinkComponent(props) {
     const runBuild = async (event) => {
         event.preventDefault();
         try {
+            console.log(buildQty);
             const { data } = await buildList({
                 variables: {
                     itemId: props.itemId,
@@ -39,7 +40,7 @@ export default function GatherLinkComponent(props) {
     return (
         <>
             {props.name} - {props.description} {" "}
-            <label for="buildQty">Build quantity: </label>
+            <label htmlFor="buildQty">Build quantity: </label>
             <input
                 type="number"
                 id="buildQty"
