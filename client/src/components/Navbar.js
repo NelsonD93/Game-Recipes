@@ -37,13 +37,7 @@ function Navbar({ currentPage, handlePageChange }) {
                                 Profile
                             </NavLink>
 
-                            <NavLink
-                                to='/Game'
-                                className="w3-bar-item w3-button"
-                            >
-                                Games
-                            </NavLink>
-
+                       
                             <button className="w3-bar-item w3-button" onClick={logout}>
                                 Logout
                             </button>

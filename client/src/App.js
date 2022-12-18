@@ -21,6 +21,7 @@ import GameTest from './pages/GameTest';
 import Gather from './pages/Gather';
 import Craft from './pages/Craft';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 // import ListComponent from './components/ListComponent';
 
 
@@ -109,7 +110,9 @@ function App() {
           </Routes>
         </div>
       </Router>
-
+<div>
+  <Footer/>
+</div>
 
     </ApolloProvider>
   );
