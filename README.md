@@ -4,7 +4,7 @@ Welcome to WikiCraft, your new favorite crafting game helper. This project was i
 
 ## A little about our project
 
-In this application you will find a place to store all of your building and crafting recipies for multiple games instead of having to search multiple Wiki sites. You can consolidate your crafting recipes by game and keep track of items you already have and what you still need for a particular item.
+In this application you will find a place to store all of your building and crafting recipies for multiple games instead of having to search multiple Wiki sites. You can consolidate your crafting recipes by game and keep track of items you already have and what you still need for a particular build or recipe.
 
 ### `Our Motivation`
 
@@ -26,3 +26,11 @@ Out site is deployed to: [https://game-recipes.herokuapp.com](https://game-recip
 [https://github.com/NelsonD93/Game-Recipes](https://github.com/NelsonD93/Game-Recipes)
 
 ### `Future development plans` 
+
+- Adding more games
+- More interactive features
+- Even more amazing graphics
+- Chat with others who follow your game
+- Add item interface
+- Add game interface
+- Link to other game wiki pages
