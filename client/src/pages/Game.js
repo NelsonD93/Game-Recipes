@@ -4,10 +4,29 @@ import '../assets/css/Game.css';
 // import mineLogo from '../../src/assets/images/minecraft.png';
 // import botwLogo from '../../src/assets/images/botw.png';
 import mineBG from '../../src/assets/images/minecraftBG.jpg';
-// import ListComponent from '../components/ListComponent';
+import GameRecipeComponent from '../components/GameRecipesComponent';
+import ListComponent from '../components/ListComponent';
+import { useLocation } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { GET_GAME } from '../utils/queries';
 
 
 function Game() {
+    const location = useLocation();
+    const { gameId } = location.state;
+
+    const { loading, data } = useQuery(GET_GAME, {
+        // variables: { gameId: "639dd2e46f67310e54634f80" }
+        variables: { gameId: gameId }
+    });
+
+    let gameData;
+
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    } else {
+        gameData = data.getGame;  
+    }
 
     return (
         <div>
@@ -25,11 +44,16 @@ function Game() {
                     </h1>
                 </div>
 
-            {/* <ListComponent/> */}
+            <h1>{gameData.name}</h1> 
+            <GameRecipeComponent gameId={gameId} />
+
+
+            <ListComponent/>
 
             <footer className="w3-center w3-black w3-padding-16">
                 <p>WIKICRAFT by WIKIDEV</p>
             </footer>
+
         </div>
     );
 }

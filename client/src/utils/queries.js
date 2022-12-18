@@ -126,4 +126,11 @@ query me {
   }
 }`;
 
+export const GET_GAME = gql`
+query getGame($gameId: ID!) {
+  getGame(gameId: $gameId) {
+    _id
+    name
+  }
+}`;
 

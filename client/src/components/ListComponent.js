@@ -25,7 +25,8 @@ export default function ListComponent(props) {
 
     return (
         <>
-            <h2>{listData.name}</h2>
+            <h1>{listData.name}</h1>
+            <h3>Ingredients to Gather</h3>
             {listData.ingredients.map((ingredient) => {
                 return (
                     <div>
@@ -37,7 +38,25 @@ export default function ListComponent(props) {
                     </div>
                 )
             })}
-            {/* <h2>stuff</h2> */}
+            <h3>Items to Craft</h3>
+            {listData.buildStack.map((item) => {
+                return (
+                    <div>
+                        <ul>
+                            <li>Item name: {item.itemName} Quantity: {item.qty}</li>
+                            {item.ingredients.map((ingredient) => {
+                                return (
+                                    <div>
+                                        <ul>
+                                            <li>Ingredient name: {ingredient.itemName} Quantity: {ingredient.qty}</li>
+                                        </ul>
+                                    </div>
+                                )
+                            })}
+                        </ul>
+                    </div>
+                )
+            })}
         </>
     )
 }

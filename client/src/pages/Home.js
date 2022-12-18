@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 // import Navbar from '../components/Navbar';
 import botwBG from '../../src/assets/images/botwBG.jpg';
@@ -5,7 +6,7 @@ import mineLogo from '../../src/assets/images/minecraft.png';
 import botwLogo from '../../src/assets/images/botw.png';
 import subnautica from '../../src/assets/images/subnautica.png';
 import stardew from '../../src/assets/images/stardewAlt.png';
-// import 'w3-css/w3.css';
+import 'w3-css/w3.css';
 import '../assets/css/Game.css';
 
 function Home() {
@@ -48,34 +49,56 @@ function Home() {
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Minecraft</div>
-
-                        <a href='' > <img src={mineLogo} className="mineblock" alt="minecraft grass block" /> </a>
+                        <Link
+                            to="/Game"
+                            state={{ gameId: "639f156a67e877420868ea71" }}
+                        >
+                        <img src={mineLogo} className="mineblock" alt="minecraft grass block" /></Link>
                     </div>
                 </div>
+                
 
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
 
-                        <a href='' > <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /> </a>
+                        <Link
+                            to="/Game"
+                            state={{ gameId: "639f0ff2edc1374dc8fae86b" }}
+                        >
+                            <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /></Link>
 
                     </div>
                 </div>
 
+
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Subnautica</div>
-                        <a href='' > <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </a>
+
+                        <Link
+                            to="/Game"
+                            state={{ gameId: "639dd2e46f67310e54634f80" }}
+                        >
+                            <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </Link>
+
                     </div>
                 </div>
 
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
-                        <a href='' > <img src={stardew} className="starLogo" alt="stardew valley logo" /> </a>
+
+                        <Link
+                            to="/Game"
+                            state={{ gameId: "639f144867e877420868ea69" }}
+                        >
+                            <img src={stardew} className="starLogo" alt="stardew valley logo" /> </Link>
+
+
                     </div>
                 </div>
-
+                
             </div>
 
             <footer className="w3-center w3-black w3-padding-16">

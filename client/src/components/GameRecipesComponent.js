@@ -1,19 +1,19 @@
-// import React, { useState } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { } from '../utils/actions';
 import { useQuery } from '@apollo/client';
 import { GET_GAME_ITEMS } from '../utils/queries';
+import GatherLinkComponent from './GatherLinkComponent';
 // import { useMutation } from '@apollo/client';
 
-export default function GameRecipeComponent() {
-    // const dispatch = useDispatch();
-    // const state = useSelector((state) => state);
+export default function GameRecipeComponent(props) {
+
+
+
 
     const { loading, data } = useQuery(GET_GAME_ITEMS, {
-        variables: { gameId: "639dd2e46f67310e54634f80" }
+        // variables: { gameId: "639dd2e46f67310e54634f80" }
+        variables: { gameId: props.gameId }
     });
-
-    // const {loading, data} = useQuery(GET_LISTS);
 
     let itemData;
     let filteredItemData;
@@ -22,36 +22,33 @@ export default function GameRecipeComponent() {
         return <h2>LOADING...</h2>;
     } else {
         itemData = data.getGameItems;
-        console.log(itemData)
 
         function hasIngredients(item) {
             return item.recipe.length !== 0;
         }
-        
+
         filteredItemData = itemData.filter(hasIngredients);
-        
+
     }
 
     return (
         <>
-            <h2>{filteredItemData[0].name}</h2>
 
-            {filteredItemData.map((item) => {
-
+            {filteredItemData.map((item, index) => {
                 return (
                     <div>
-                        <li>{item.name}</li>
-                        <li>{item.description}</li>
-                       
+                        <li>
+                            <GatherLinkComponent 
+                                name={item.name}
+                                description={item.description}
+                                itemId={item._id}
+                            />
+                        </li>
                     </div>
                 )
             }
             )
             }
-
-
-
-            {/* <h2>stuff</h2> */}
         </>
     )
 }
