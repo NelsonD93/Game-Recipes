@@ -3,7 +3,7 @@
 import React from 'react'
 import 'w3-css/w3.css';
 import { useQuery } from '@apollo/client';
-import { GET_LIST, GET_ME } from '../utils/queries';
+import { GET_ME } from '../utils/queries';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
@@ -53,15 +53,17 @@ const Profile = () => {
               return (
                 <><div>
                   <ul>
-                    <li>{list.name}
+                    <li>
+                    <Link
+                    to="/Gather"
+                    state={{ listId: list._id }}
+                  >
+                      {list.name}
+                      </Link>
                     </li>
                   </ul>
                 </div>
-                  <Link
-                    to="/Gather"
-                    state={{ }}
-                  >
-                    </Link></>
+</>
               )
 
             })}</h3>
