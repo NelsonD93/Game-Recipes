@@ -25,27 +25,33 @@ function Game() {
     if (loading) {
         return <h2>LOADING...</h2>;
     } else {
-        gameData = data.getGame;  
+        gameData = data.getGame;
     }
 
     return (
         <div>
-             <img src={mineBG} alt="breath of the wild scenery" style={{
-                        maxHeight: '600px',
-                        minWidth: '1600px'
-                    }}/>
-           
-           
-                <div className="w3-display-middle w3-margin-top w3-center">
-                    <h1 className="w3-xxlarge w3-text-white">
-                        <span className="w3-padding w3-black w3-opacity-min alex-test">
-                            <b>WIKICRAFT</b></span>
-                        <span className="w3-hide-small w3-text-light-grey"></span>
-                    </h1>
-                </div>
+            <img src={mineBG} alt="minecraft scenery" style={{
+                maxHeight: '600px',
+                minWidth: '1600px'
+            }} />
 
-            <h1>{gameData.name}</h1> 
-            <GameRecipeComponent gameId={gameId} />
+
+            <div className="w3-display-middle w3-margin-top w3-center">
+                <h1 className="w3-xxlarge w3-text-white">
+                    <span className="w3-padding w3-black w3-opacity-min alex-test">
+                        <b>WIKICRAFT</b></span>
+                    <span className="w3-hide-small w3-text-light-grey"></span>
+                </h1>
+            </div>
+            <div class="w3-container w3-padding-32" id="game">
+                <h1 className="w3-border-bottom w3-border-light-grey w3-padding-16">{gameData.name}</h1>
+                <div class="w3-col l3 m6 w3-margin-bottom w3-center" style={{
+                        width: '80%',
+                        display: "inline-block"}}>
+                    <div class="w3-display-container ">
+                        <GameRecipeComponent gameId={gameId} />
+                    </div>
+                </div>
 
         </div>
     );
