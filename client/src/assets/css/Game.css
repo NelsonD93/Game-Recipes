@@ -39,3 +39,18 @@ Footer {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.subBG {
+    background-image: url('../images/subBG.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gather {
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    opacity: 90%;
+    margin-left: 100px;
+    margin-right: 100px;
+}

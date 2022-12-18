@@ -55,7 +55,7 @@ const Login = () => {
         <div className="w3-padding-48 login">
           <div className="w3-col 26 m6 w3-margin-bottom">
             <div className="w3-display-container w3-padding-large">
-              <form class="w3-container w3-card-4">
+              <form className="w3-container w3-card-4">
                 {data ? (
                   <p>
                     Success! You may now head{' '}
