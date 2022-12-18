@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# WikiCraft
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to WikiCraft, your new favorite crafting game helper. This project was inspired from the minds of WikiDev, a team of like minded web developers and avid gamers made up of Liz Rz, Nelson Drozd, Alex Bellamy, Graham Johnson, and Kerri Sosinski
 
-## Available Scripts
+## A little about our project
 
-In the project directory, you can run:
+In this application you will find a place to store all of your building and crafting recipies for multiple games instead of having to search multiple Wiki sites. You can consolidate your crafting recipes by game and keep track of items you already have and what you still need for a particular item.
 
-### `npm start`
+### `Our Motivation`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The motivation behind WikiCraft came from the need to conslidate gaming information into one site. As gamers we tend to get lost in a game for hours and who wants to search through sites for the recipes or build you need when you can go directly to your own library? You can find everything you are woking on or currently searching for. WikiCraft solves the problem of taking excessive time away from your gaming.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `What we learned`
 
-### `npm test`
+We learned react from end styling, working with the cloud database, working collectivly with deligating task and resposibilities as well as working together to solve problems or even just to cheer on a team meber as they solved an issue.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `How our project stands out`
 
-### `npm run build`
+Our front end styling is stunning and the data base complexity can be configured for multiple other applicational uses.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Out site is deployed to: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Future development plans` 
