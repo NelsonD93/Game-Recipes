@@ -117,7 +117,8 @@ const resolvers = {
         buildList: async (parent, { itemId, name, userId, buildQty }, context) => {
             let currentUserId;
             if (context.user) {
-                currentUserId = context.user._id;       
+                currentUserId = context.user._id; 
+      
             } else {
                 currentUserId = userId;
             }
@@ -159,7 +160,6 @@ const resolvers = {
             }
             // The item that the user wants to make
             const endItem = await Item.findOne({ _id: itemId });
-            console.log(endItem)
             const endIngredients = [...endItem.recipe];
             const endName = endItem.name;
             buildStack.unshift({
