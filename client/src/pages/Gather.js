@@ -19,7 +19,9 @@ function Gather() {
 
     return (
         <div className='w3-padding-48 main'>
+            <div className='w3-padding-30 main'>
             <ListComponent listId={listId}/>
+        </div>
         </div>
     );
 }
