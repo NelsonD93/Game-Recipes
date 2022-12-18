@@ -46,9 +46,6 @@ function Game() {
 
             <h1>{gameData.name}</h1> 
             <GameRecipeComponent gameId={gameId} />
-            <footer className="w3-center w3-black w3-padding-16">
-                <p>WIKICRAFT by WIKIDEV</p>
-            </footer>
 
         </div>
     );
