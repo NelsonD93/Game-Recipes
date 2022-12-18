@@ -46,10 +46,10 @@ export default function ListComponent(props) {
     }
 
     return (
-        <div className='subBG'>
+        
             <div className='w3-container  w3-padding-48 main'>
             
-            <h1 className="w3-display-center w3-black w3-padding w3-center">{listData.name}</h1>
+            <h1 className="w3-display-center w3-black w3-padding w3-center itemName">{listData.name}</h1>
             <div className="w3-card-4 gather">
             <h3 className='text'>Ingredients to Gather</h3> {" "}
             {listData.ingredients.map((ingredient) => {
@@ -84,9 +84,11 @@ export default function ListComponent(props) {
                     </div>
                 )
             })}
-            <button onClick={runDelete} className='text'>Complete List</button>
+            </div>
+            <div className='w3-center'>
+            <button onClick={runDelete} className='text w3-button w3-section w3-teal w3-ripple w3-margin w3-center button'>Complete List</button>
+            </div>
         </div>
-        </div>
-        </div>
+        
     )
 }
