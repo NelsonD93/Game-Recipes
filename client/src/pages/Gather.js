@@ -18,7 +18,7 @@ function Gather() {
 
 
     return (
-        <div>
+        <div className='w3-padding-48 main'>
             <ListComponent listId={listId}/>
         </div>
     );
