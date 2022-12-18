@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import botwField from '../assets/images/botwFieldBG.jpg';
+
 
 import Auth from '../utils/auth';
 // import 'w3-css/w3.css';
@@ -48,11 +48,11 @@ const Login = () => {
 
   return (
     <div className='imageBG'>
-      
+
     <div className="w3-padding-48 main">
       <div className="w3-display-container">
-        <div className="w3-display-topleft w3-black w3-padding">Login</div>
-        <div className="w3-padding-48">
+        <div className="w3-display-center w3-black w3-padding w3-center"><h1>Login</h1></div>
+        <div className="w3-padding-48 login">
           <div className="w3-col 26 m6 w3-margin-bottom">
             <div className="w3-display-container w3-padding-large">
               <form class="w3-container w3-card-4">
