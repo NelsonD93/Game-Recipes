@@ -62,16 +62,16 @@ function Home() {
                     </div>
                 </div>
 
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Subnautica</div>
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Subnautica</div>
                         <a href='' > <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </a>
                     </div>
                 </div>
 
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
                         <a href='' > <img src={stardew} className="starLogo" alt="stardew valley logo" /> </a>
                     </div>
                 </div>
