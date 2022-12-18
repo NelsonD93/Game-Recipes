@@ -71,9 +71,10 @@ function Home() {
                     </div>
                 </div>
 
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Subnautica</div>
+
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Subnautica</div>
 
                         <Link
                             to="/Game"
@@ -84,15 +85,16 @@ function Home() {
                     </div>
                 </div>
 
-                <div class="w3-col l3 m6 w3-margin-bottom">
-                    <div class="w3-display-container">
-                        <div class="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
+                <div className="w3-col l3 m6 w3-margin-bottom">
+                    <div className="w3-display-container">
+                        <div className="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
 
                         <Link
                             to="/Game"
                             state={{ gameId: "639f144867e877420868ea69" }}
                         >
                             <img src={stardew} className="starLogo" alt="stardew valley logo" /> </Link>
+
 
                     </div>
                 </div>

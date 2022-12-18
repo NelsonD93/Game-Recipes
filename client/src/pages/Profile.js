@@ -3,35 +3,35 @@
 import React from 'react'
 import 'w3-css/w3.css';
 import { useQuery } from '@apollo/client';
-import { GET_ME } from '../utils/queries';
-
+import { GET_LIST, GET_ME } from '../utils/queries';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
-  const {loading, data} = useQuery(GET_ME);  
+  const { loading, data } = useQuery(GET_ME);
 
   let userData;
   if (loading) {
     return <h2>LOADING...</h2>;
-} else {
+  } else {
     userData = data.me;
     console.log(userData)
-}
+  }
 
   return (
-<div>
     <div>
-      <header className="w3-display-container w3-content w3-wide" id="home" style={{
-        maxwidth: '1500px',
-      }}>
+      <div>
+        <header className="w3-display-container w3-content w3-wide" id="home" style={{
+          maxwidth: '1500px',
+        }}>
 
 
-        <div className="w3-display-middle w3-margin-top w3-center">
-          <h1 className="w3-xxlarge w3-text-white"><span className="w3-padding w3-black w3-opacity-min "><b>WIKICRAFT</b></span>
-            <span className="w3-hide-small w3-text-light-grey"></span></h1>
-        </div>
-      </header>
-    </div><div>
+          <div className="w3-display-middle w3-margin-top w3-center">
+            <h1 className="w3-xxlarge w3-text-white"><span className="w3-padding w3-black w3-opacity-min "><b>WIKICRAFT</b></span>
+              <span className="w3-hide-small w3-text-light-grey"></span></h1>
+          </div>
+        </header>
+      </div><div>
         {<><div className="w3-content w3-padding" style={{
           maxwidth: '1564px',
         }} /><div className="w3-container w3-padding-32" id="games">
@@ -46,13 +46,35 @@ const Profile = () => {
           </div>
         </div>
 
+        <div className="w3-row-padding">
+          <div className="w3-container">
+            <h1 className="w3-border-bottom w3-border-light-grey w3-padding-16"> Lists:</h1>
+            <h3>{userData.lists.map((list) => {
+              return (
+                <><div>
+                  <ul>
+                    <li>{list.name}
+                    </li>
+                  </ul>
+                </div>
+                  <Link
+                    to="/Gather"
+                    state={{ }}
+                  >
+                    </Link></>
+              )
 
-        
+            })}</h3>
+          </div>
+        </div>
+
+
+
       </div>
       <footer className="w3-center w3-black w3-padding-16">
-                <p>WIKICRAFT by WIKIDEV</p>
-            </footer>
-      </div>
+        <p>WIKICRAFT by WIKIDEV</p>
+      </footer>
+    </div>
 
   )
 }
