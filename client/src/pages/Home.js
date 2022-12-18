@@ -61,39 +61,47 @@ function Home() {
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
+
                         <Link
                             to="/Game"
                             state={{ gameId: "639f0ff2edc1374dc8fae86b" }}
                         >
                             <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /></Link>
+
                     </div>
                 </div>
 
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Subnautica</div>
+
                         <Link
                             to="/Game"
                             state={{ gameId: "639dd2e46f67310e54634f80" }}
                         >
                             <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </Link>
+
                     </div>
                 </div>
 
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-display-container">
                         <div class="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
+
                         <Link
                             to="/Game"
                             state={{ gameId: "639f144867e877420868ea69" }}
                         >
                             <img src={stardew} className="starLogo" alt="stardew valley logo" /> </Link>
+
                     </div>
                 </div>
                 
             </div>
 
-
+            <footer className="w3-center w3-black w3-padding-16">
+                <p>WIKICRAFT by WIKIDEV</p>
+            </footer>
 
         </div>
     );

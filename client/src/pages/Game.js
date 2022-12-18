@@ -43,8 +43,17 @@ function Game() {
                         <span className="w3-hide-small w3-text-light-grey"></span>
                     </h1>
                 </div>
+
             <h1>{gameData.name}</h1> 
             <GameRecipeComponent gameId={gameId} />
+
+
+            {/* <ListComponent/> */}
+
+            <footer className="w3-center w3-black w3-padding-16">
+                <p>WIKICRAFT by WIKIDEV</p>
+            </footer>
+
         </div>
     );
 }
