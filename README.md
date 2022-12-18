@@ -21,6 +21,8 @@ Our front end styling is stunning and the data base complexity can be configured
 
 ### Deployment
 
-Out site is deployed to: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Out site is deployed to: [https://game-recipes.herokuapp.com](https://game-recipies.herokuapp.com)
+
+[https://github.com/NelsonD93/Game-Recipes](https://github.com/NelsonD93/Game-Recipes)
 
 ### `Future development plans` 
