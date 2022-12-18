@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Header from '../components/Header';
+import Auth from '../utils/auth';
 // import Navbar from '../components/Navbar';
 import botwBG from '../../src/assets/images/botwBG.jpg';
 import mineLogo from '../../src/assets/images/minecraft.png';
@@ -48,25 +49,42 @@ function Home() {
             <div className="w3-row-padding">
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
-                        <div className="w3-display-topleft w3-black w3-padding">Minecraft</div>
-                        <Link
+                        <div className="w3-display-topleft w3-black w3-padding">
+                            Minecraft
+                        </div>
+                        {Auth.loggedIn() ? (
+                            <NavLink
                             to="/Game"
                             state={{ gameId: "639f156a67e877420868ea71" }}
                         >
-                        <img src={mineLogo} className="mineblock" alt="minecraft grass block" /></Link>
+                            <img src={mineLogo} className="mineblock" alt="minecraft grass block" /></NavLink>
+                        ): (
+                            <NavLink
+                            to="/"
+                            state={{ gameId: "639f156a67e877420868ea71" }}
+                        >
+                            <img src={mineLogo} className="mineblock" alt="minecraft grass block" /></NavLink>
+                        )}
                     </div>
                 </div>
-                
+
 
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Breath of the Wild</div>
-
-                        <Link
+                        {Auth.loggedIn() ? (
+                            <NavLink
                             to="/Game"
                             state={{ gameId: "639f0ff2edc1374dc8fae86b" }}
                         >
-                            <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /></Link>
+                            <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /></NavLink>
+                        ): (
+                            <NavLink
+                            to="/"
+                            state={{ gameId: "639f0ff2edc1374dc8fae86b" }}
+                        >
+                            <img src={botwLogo} className="zeldaLogo" alt="zelda breath of the wild logo" /></NavLink>
+                        )}
 
                     </div>
                 </div>
@@ -75,12 +93,20 @@ function Home() {
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Subnautica</div>
-
-                        <Link
-                            to="/Game"
-                            state={{ gameId: "639dd2e46f67310e54634f80" }}
-                        >
-                            <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </Link>
+                        {Auth.loggedIn() ? (
+                            <NavLink
+                                to="/Game"
+                                state={{ gameId: "639dd2e46f67310e54634f80" }}
+                            >
+                                <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </NavLink>
+                        ) : (
+                            <NavLink
+                                to="/"
+                                state={{ gameId: "639dd2e46f67310e54634f80" }}
+                            >
+                                <img src={subnautica} className="subLogo" alt="Subnautica logo" /> </NavLink>
+                        )
+                        }
 
                     </div>
                 </div>
@@ -88,18 +114,29 @@ function Home() {
                 <div className="w3-col l3 m6 w3-margin-bottom">
                     <div className="w3-display-container">
                         <div className="w3-display-topleft w3-black w3-padding">Stardew Valley</div>
-
-                        <Link
-                            to="/Game"
-                            state={{ gameId: "639f144867e877420868ea69" }}
-                        >
-                            <img src={stardew} className="starLogo" alt="stardew valley logo" /> </Link>
+                        {Auth.loggedIn() ? (
+                            <NavLink
+                                to="/Game"
+                                state={{ gameId: "639f144867e877420868ea69" }}
+                            >
+                                <img src={stardew} className="starLogo" alt="stardew valley logo" /> </NavLink>
+                        ) : (
+                            <NavLink
+                                to="/"
+                                state={{ gameId: "639f144867e877420868ea69" }}
+                            >
+                                <img src={stardew} className="starLogo" alt="stardew valley logo" /> </NavLink>
+                        )}
 
 
                     </div>
                 </div>
-                
+
             </div>
+
+            <footer className="w3-center w3-black w3-padding-16">
+                <p>WIKICRAFT by WIKIDEV</p>
+            </footer>
 
         </div>
     );
