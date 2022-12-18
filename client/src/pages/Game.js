@@ -44,7 +44,7 @@ function Game() {
                 </h1>
             </div>
             <div class="w3-container w3-padding-32" id="game">
-                <h1 className="w3-border-bottom w3-border-light-grey w3-padding-16">{gameData.name}</h1>
+                <h1 className="w3-border-bottom w3-border-light-grey w3-padding-16 text">{gameData.name}</h1>
                 <div class="w3-col l3 m6 w3-margin-bottom w3-center" style={{
                     width: '80%',
                     display: "inline-block"
