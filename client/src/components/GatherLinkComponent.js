@@ -21,7 +21,6 @@ export default function GatherLinkComponent(props) {
     const runBuild = async (event) => {
         event.preventDefault();
         try {
-            console.log(buildQty);
             const { data } = await buildList({
                 variables: {
                     itemId: props.itemId,

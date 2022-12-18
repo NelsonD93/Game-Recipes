@@ -93,7 +93,7 @@ type List {
     subToGame(gameId:ID!): User
     buildList(itemId:ID!, userId:ID, name:String!, buildQty: Int!): List
     updateOnHand(listId:ID!, onHandUpdate:[IngredientInput!]): List
-
+    deleteList(listId: ID!, userId:ID):List
   }
 `;
 

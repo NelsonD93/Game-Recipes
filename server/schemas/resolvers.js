@@ -253,6 +253,31 @@ const resolvers = {
                 { new: true, runValidators: true }
             );
             return updatedList;
+        },
+
+        deleteList: async (parent, {listId, userId}, context) => {
+
+            let currentUserId;
+            if (context.user) {
+                currentUserId = context.user._id; 
+      
+            } else {
+                currentUserId = userId;
+            }
+            const updatedUser = await User.findOneAndUpdate(
+                { _id: currentUserId },
+                {
+                    $pull: {
+                        lists: { _id: listId}
+                    }
+                },
+                { new: true}
+            );
+
+            const list = await List.findOneAndRemove({
+                _id: listId
+            })
+            return list;
         }
     },
 };
