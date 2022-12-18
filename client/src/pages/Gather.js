@@ -11,7 +11,7 @@ import { useLocation } from 'react-router-dom';
 
 
 
-function Game() {
+function Gather() {
     const location = useLocation();
     const { listId } = location.state;
 
@@ -23,4 +23,4 @@ function Game() {
     );
 }
 
-export default Game;
+export default Gather;
