@@ -20,7 +20,7 @@ const Profile = () => {
   return (
     <div>
       <div>
-      <img src={stardewBG} alt="minecraft scenery" style={{
+      <img src={stardewBG} alt="stardew valley scenery" style={{
                 maxHeight: '600px',
                 minWidth: '1600px'
             }} />
@@ -49,7 +49,7 @@ const Profile = () => {
             <h3>{userData.lists.map((list) => {
               return (
                 <><div>
-                  <ul>
+                  <ul className='text'>
                     <li>
                     <Link
                     to="/Gather"
