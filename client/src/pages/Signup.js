@@ -42,10 +42,11 @@ const Signup = () => {
   
 
   return (
+    <div className='signBG'>
     <div className="w3-padding-48 main">
       <div className="w3-display-container">
-        <div className="w3-display-topleft w3-black w3-padding">Signup</div>
-        <div className="w3-padding-48">
+        <div className="w3-display-center w3-black w3-padding login"><h1>Signup</h1></div>
+        <div className="w3-padding-48 login">
           <div className="w3-col 26 m6 w3-margin-bottom">
             <div className="w3-display-container w3-padding-large">
               <form class="w3-container w3-card-4">
@@ -103,6 +104,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

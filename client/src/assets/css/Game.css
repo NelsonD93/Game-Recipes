@@ -33,3 +33,9 @@ Footer {
     display: flex;
     justify-content: center;
 }
+
+.signBG {
+    background-image: url('../images/subLogoBG.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
