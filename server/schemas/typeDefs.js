@@ -72,6 +72,7 @@ type List {
 
 
   type Query {
+    getGame(gameId: ID!): Game
     getGames: [Game]
     getOneItem(itemId: ID!): Item
     getGameItems(gameId: ID!): [Item]
