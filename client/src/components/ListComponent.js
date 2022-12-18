@@ -10,7 +10,8 @@ export default function ListComponent(props) {
     // const state = useSelector((state) => state);
 
     const { loading, data } = useQuery(GET_LIST, {
-        variables: { listId: "639e3eb0727efb1a605bef28" }
+        // variables: { listId: "639e3eb0727efb1a605bef28" }
+        variables: { listId: props.listId }
     });
 
     // const {loading, data} = useQuery(GET_LISTS);
