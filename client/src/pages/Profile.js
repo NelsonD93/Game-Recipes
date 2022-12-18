@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/heading-has-content */
-import React from 'react'
+import React from 'react';
 import 'w3-css/w3.css';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
