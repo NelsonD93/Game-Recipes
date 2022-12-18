@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 function Gather() {
     const location = useLocation();
     const { listId } = location.state;
+    console.log(listId)
 
 
     return (

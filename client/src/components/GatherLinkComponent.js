@@ -1,15 +1,40 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { } from '../utils/actions';
+import { useMutation } from '@apollo/client';
+import { BUILD_LIST } from '../utils/mutations';
+
 
 
 export default function GatherLinkComponent(props) {
 
     const [buildQty, setBuildQty] = useState(1);
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setBuildQty(event.target.value);
     };
+
+    // eslint-disable-next-line no-unused-vars
+    const [buildList, { error }] = useMutation(BUILD_LIST);
+
+    const runBuild = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await buildList({
+                variables: {
+                    itemId: props.itemId,
+                    name: props.name,
+                    buildQty: buildQty
+                }
+            });
+            const listId = data.buildList._id;
+
+            navigate('/Gather', {state: { listId: listId }})
+        } catch(err) {
+            console.error(err);
+        }     
+    }
 
     return (
         <>
@@ -22,14 +47,10 @@ export default function GatherLinkComponent(props) {
                 onChange={handleChange}
                 value={buildQty}
             />
-            <Link to="/Gather"
-            state={{ itemId: props.itemId, buildQty: buildQty }}
-            >
-                <button>Build</button>
-            </Link>
-            </>
+            <button onClick={runBuild}>Build</button>
+        </>
     )
-                    
-                
+
+
 
 }
