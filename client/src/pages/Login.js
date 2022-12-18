@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import botwField from '../assets/images/botwFieldBG.jpg';
 
 import Auth from '../utils/auth';
 // import 'w3-css/w3.css';
@@ -46,6 +47,8 @@ const Login = () => {
   };
 
   return (
+    <div className='imageBG'>
+      
     <div className="w3-padding-48 main">
       <div className="w3-display-container">
         <div className="w3-display-topleft w3-black w3-padding">Login</div>
@@ -98,7 +101,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-    
+    </div>
   );
 };
 

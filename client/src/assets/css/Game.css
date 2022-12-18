@@ -22,3 +22,9 @@ Footer {
 .main {
     min-height: 100vh; /* or the minimum height of your content */;
   }
+
+  .imageBG {
+    background-image: url('../images/botwFieldBG.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
