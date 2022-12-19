@@ -5,6 +5,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_LIST } from '../utils/queries';
 import { DELETE_LIST } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
+import '../assets/css/Game.css';
 
 export default function ListComponent(props) {
     // const dispatch = useDispatch();
