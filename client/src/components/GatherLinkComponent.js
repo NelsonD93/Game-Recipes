@@ -39,7 +39,7 @@ export default function GatherLinkComponent(props) {
     return (
         <>
             {props.name} - {props.description} {" "}
-            <label htmlFor="buildQty">Build quantity: </label>
+            <label htmlFor="buildQty"></label>
             <input
                 type="number"
                 id="buildQty"
@@ -47,7 +47,9 @@ export default function GatherLinkComponent(props) {
                 onChange={handleChange}
                 value={buildQty}
             />
-            <button onClick={runBuild}>Build</button>
+            <button 
+            className='text w3-button w3-teal w3-margin'
+            onClick={runBuild}>Build</button>
         </>
     )
 

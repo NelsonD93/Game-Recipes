@@ -37,13 +37,13 @@ export default function GameRecipeComponent(props) {
             {filteredItemData.map((item, index) => {
                 return (
                     <div>
-                        <li className='text'>
+                        <p className='text'>
                             <GatherLinkComponent 
                                 name={item.name}
                                 description={item.description}
                                 itemId={item._id}
                             />
-                        </li>
+                        </p>
                     </div>
                 )
             }
