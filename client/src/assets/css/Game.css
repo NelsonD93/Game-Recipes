@@ -41,7 +41,7 @@ Footer {
 }
 
 .subBG {
-    background-image: url('../images/subBG.webp');
+    /* background-image: url('../images/subBG.webp'); */
     background-size: cover;
     background-repeat: no-repeat;
 }
