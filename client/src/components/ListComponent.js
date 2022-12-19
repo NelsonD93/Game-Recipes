@@ -54,11 +54,9 @@ export default function ListComponent(props) {
             <h3 className='text text-padding'>Ingredients to Gather</h3> {" "}
             {listData.ingredients.map((ingredient) => {
                 return (
-                    // <div>
-                        // <ul className='text'>
+                    <div>
                             <p className='list-item'>{ingredient.itemName} {" x"} {ingredient.qty}</p>
-                        // </ul>
-                    // </div>
+                    </div>
                 )
             })}
             </div>
