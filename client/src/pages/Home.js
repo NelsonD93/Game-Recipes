@@ -17,8 +17,8 @@ function Home() {
             <Header />
 
             <img src={botwBG} className="homeBG" alt="breath of the wild scenery" style={{
-                maxHeight: '75vh',
-                minWidth: '200vh'
+                maxHeight: '85vh',
+                minWidth: '250vh'
             }} />
             <div className="w3-display-middle w3-margin-top w3-center">
                 <h1 className="w3-xxlarge w3-text-white">
