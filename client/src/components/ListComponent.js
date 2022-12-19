@@ -5,6 +5,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_LIST } from '../utils/queries';
 import { DELETE_LIST } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
+import 'w3-css/w3.css';
 import '../assets/css/Game.css';
 
 export default function ListComponent(props) {
@@ -72,7 +73,7 @@ export default function ListComponent(props) {
                                 return (
                                     <div>
    
-                                            <p className='text list-item'>{ingredient.itemName} {" x"} {ingredient.qty}</p>
+                                            <p>{ingredient.itemName} {" x"} {ingredient.qty}</p>
                                         
                                     </div>
                                 )
