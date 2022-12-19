@@ -20,7 +20,7 @@ Footer {
 }
 
 .main {
-    min-height: 50vh; /* or the minimum height of your content */;
+    min-height: 100vh; /* or the minimum height of your content */;
   }
 
 .imageBG {
