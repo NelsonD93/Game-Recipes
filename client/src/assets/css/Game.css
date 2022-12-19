@@ -67,3 +67,15 @@ Footer {
     justify-content: center;
     font-size: x-large;
 }
+
+.text-padding {
+    padding-right: 100px;
+}
+
+.list-item {
+    padding-right: 30px;
+}
+
+.listFont {
+    font-weight: bold;
+}

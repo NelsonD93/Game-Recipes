@@ -51,36 +51,34 @@ export default function ListComponent(props) {
             
             <h1 className="w3-display-center w3-black w3-padding w3-center itemName">{listData.name}</h1>
             <div className="w3-card-4 gather">
-            <h3 className='text'>Ingredients to Gather</h3> {" "}
+            <h3 className='text text-padding'>Ingredients to Gather</h3> {" "}
             {listData.ingredients.map((ingredient) => {
                 return (
                     // <div>
-                        <ul className='text'>
-                            <li>Ingredient name: {ingredient.itemName}</li>
-                            <li>Quantity needed: {ingredient.qty}</li>
-                            <li>Quantity on hand: {ingredient.onHand}</li>
-                        </ul>
+                        // <ul className='text'>
+                            <p className='list-item'>{ingredient.itemName} {" x"} {ingredient.qty}</p>
+                        // </ul>
                     // </div>
                 )
             })}
             </div>
             <div className="w3-card-4 gather">
-            <h3 className='text'>Items to Craft</h3>
+            <h3 className='text text-padding'>Items to Craft</h3>
             {listData.buildStack.map((item) => {
                 return (
                     <div>
-                        <ul className='text'>
-                            <li>Item name: {item.itemName} Quantity: {item.qty}</li>
+
+                            <p classname='text listFont'>{item.itemName} {" x"} {item.qty}</p>
                             {item.ingredients.map((ingredient) => {
                                 return (
                                     <div>
-                                        <ul className='text'>
-                                            <li>Ingredient name: {ingredient.itemName} Quantity: {ingredient.qty}</li>
-                                        </ul>
+   
+                                            <p className='text list-item'>{ingredient.itemName} {" x"} {ingredient.qty}</p>
+                                        
                                     </div>
                                 )
                             })}
-                        </ul>
+
                     </div>
                 )
             })}
