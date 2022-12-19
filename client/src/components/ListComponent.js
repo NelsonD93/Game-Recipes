@@ -5,8 +5,6 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_LIST } from '../utils/queries';
 import { DELETE_LIST } from '../utils/mutations';
 import { useNavigate } from 'react-router-dom';
-import 'w3-css/w3.css';
-import '../assets/css/Game.css';
 
 export default function ListComponent(props) {
     // const dispatch = useDispatch();
@@ -48,45 +46,40 @@ export default function ListComponent(props) {
     }
 
     return (
-        
-            <div className='w3-container  w3-padding-48 main'>
-            
-            <h1 className="w3-display-center w3-black w3-padding w3-center itemName">{listData.name}</h1>
-            <div className="w3-card-4 gather">
-            <h3 className='text text-padding'>Ingredients to Gather</h3> {" "}
+        <>
+            <h1 className='text'>{listData.name}</h1>
+            <h3 className='text'>Ingredients to Gather</h3> {" "}
             {listData.ingredients.map((ingredient) => {
                 return (
                     <div>
-                            <p className='list-item'>{ingredient.itemName} {" x"} {ingredient.qty}</p>
+                        <ul className='text'>
+                            <li>Ingredient name: {ingredient.itemName}</li>
+                            <li>Quantity needed: {ingredient.qty}</li>
+                            <li>Quantity on hand: {ingredient.onHand}</li>
+                        </ul>
                     </div>
                 )
             })}
-            </div>
-            <div className="w3-card-4 gather">
-            <h3 className='text text-padding'>Items to Craft</h3>
+            <h3 className='text'>Items to Craft</h3>
             {listData.buildStack.map((item) => {
                 return (
                     <div>
-
-                            <p classname='text listFont'>{item.itemName} {" x"} {item.qty}</p>
+                        <ul className='text'>
+                            <li>Item name: {item.itemName} Quantity: {item.qty}</li>
                             {item.ingredients.map((ingredient) => {
                                 return (
                                     <div>
-   
-                                            <p>{ingredient.itemName} {" x"} {ingredient.qty}</p>
-                                        
+                                        <ul className='text'>
+                                            <li>Ingredient name: {ingredient.itemName} Quantity: {ingredient.qty}</li>
+                                        </ul>
                                     </div>
                                 )
                             })}
-
+                        </ul>
                     </div>
                 )
             })}
-            </div>
-            <div className='w3-center'>
-            <button onClick={runDelete} className='text w3-button w3-section w3-teal w3-ripple w3-margin w3-center button'>Complete List</button>
-            </div>
-        </div>
-        
+            <button onClick={runDelete} className='text'>Complete List</button>
+        </>
     )
 }
